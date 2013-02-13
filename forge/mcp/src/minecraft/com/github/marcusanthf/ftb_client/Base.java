@@ -47,9 +47,13 @@ public abstract class Base {
 		return key;
 	}
 	
-	public void onEnable(){} //Actions to perform when hack is enabled
+	public void onEnable(){
+		System.out.println("[INFO] " + name + " enabled."); //Print when a hack is enabled
+	} //Actions to perform when hack is enabled
 	
-	public void onDisable(){} //Actions to perform when hack is disabled
+	public void onDisable(){
+		System.out.println("[INFO] " + name + " disabled."); //Print when a hack is disabled
+	} //Actions to perform when hack is disabled
 	
 	public void toggleHack() //Toggle the hack on or off
 	{
