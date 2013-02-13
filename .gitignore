@@ -7,3 +7,6 @@
 
 # Hidden Files and Directories #
 .*
+
+# Temporary Files #
+*~
