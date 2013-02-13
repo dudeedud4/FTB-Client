@@ -10,3 +10,6 @@
 
 # Temporary Files #
 *~
+
+# Minecraft Files #
+forge/mcp/jars/
