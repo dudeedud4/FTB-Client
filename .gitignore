@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+
+# Hidden Files and Directories #
+.*
