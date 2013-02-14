@@ -23,5 +23,15 @@ public class TickHandler {
 			}
 		}
 	}
+	
+	public void afterTick(EntityPlayer player){ //Run these actions at the end of every tick in EntityPlayer
+		Iterator hacks = Base.hackArray.iterator(); //Pull in the list of hacks
+		while(hacks.hasNext()){ //When there is a hack
+			Base nexthack = (Base)hacks.next(); //Set the hack to nexthack
+			if(nexthack.getEnabled()){ //If it is enabled
+				nexthack.afterUpdate(player); //Run its onupdate
+			}
+		}
+	}
 
 }

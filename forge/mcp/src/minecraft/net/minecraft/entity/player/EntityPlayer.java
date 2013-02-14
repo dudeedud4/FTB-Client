@@ -268,6 +268,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
      */
     public void onUpdate()
     {
+        TickHandler.instance().onTick(this); //Run TickHandler's onUpdate
         FMLCommonHandler.instance().onPlayerPreTick(this);
         if (this.itemInUse != null)
         {
@@ -394,7 +395,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
             this.foodStats.onUpdate(this);
         }
         FMLCommonHandler.instance().onPlayerPostTick(this);
-        TickHandler.instance().onTick(this); //Run TickHandler's onUpdate
+        TickHandler.instance().afterTick(this); //Run TickHandler's afterTick
     }
 
     /**

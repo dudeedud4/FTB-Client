@@ -63,6 +63,8 @@ public abstract class Base {
 	
 	public void onUpdate(EntityPlayer player){} //Used if a hack needs to perform an action on tick
 	
+	public void afterUpdate(EntityPlayer player){}
+	
 	public void onEnable(){
 		System.out.println("[INFO] " + name + " enabled."); //Print when a hack is enabled
 	} //Actions to perform when hack is enabled
