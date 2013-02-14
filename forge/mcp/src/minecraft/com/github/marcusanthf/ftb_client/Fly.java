@@ -22,6 +22,7 @@ public class Fly extends Base{
 		//Bump up the movement factor
 		//TODO add custom movement factor
 		player.jumpMovementFactor = 1.0f;
+		player.landMovementFactor = 1.0f;
 		//Make the player stop sprinting
 		player.setSprinting(false);
 		//Set the player off of ground
