@@ -1,6 +1,9 @@
 package com.github.marcusanthf.ftb_client;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import net.minecraft.entity.player.EntityPlayer;
 
 public abstract class Base {
 	
@@ -9,6 +12,10 @@ public abstract class Base {
 	private String name; //Hack name
 	private String command; //Command to activate hack
 	private int key; //Key to activate hack
+	
+	Iterator hacks = hackArray.iterator();
+	
+	protected static Base base;
 	
 	/*
 	 * Name is just a string that consists of the hack name. Ex: "freecam"
@@ -46,6 +53,8 @@ public abstract class Base {
 	{
 		return key;
 	}
+	
+	public void onUpdate(EntityPlayer player){} //Used if a hack needs to perform an action on tick
 	
 	public void onEnable(){
 		System.out.println("[INFO] " + name + " enabled."); //Print when a hack is enabled
