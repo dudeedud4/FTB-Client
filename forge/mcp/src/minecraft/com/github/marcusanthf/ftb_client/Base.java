@@ -30,6 +30,8 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static Fly fly = new Fly("Fly", "fly", Keyboard.KEY_V); //Define fly and set its variables
+	
 	public Base(String hackName, String hackCommand, int hackKey)
 	{
 		//Used to add hacks to the arraylist "Hacks" which will contain all of the hack variables and information
