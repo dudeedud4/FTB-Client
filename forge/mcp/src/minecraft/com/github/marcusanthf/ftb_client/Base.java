@@ -3,6 +3,7 @@ package com.github.marcusanthf.ftb_client;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.input.Keyboard;
@@ -18,6 +19,8 @@ public abstract class Base {
 	Iterator hacks = hackArray.iterator();
 	
 	protected static Base base;
+	private static Minecraft minecraft;
+	protected static Minecraft mc = getMinecraft();
 	
 	/*
 	 * Name is just a string that consists of the hack name. Ex: "freecam"
@@ -83,5 +86,12 @@ public abstract class Base {
 		if (key == this.key) {
 			toggleHack();
 		}
+	}
+	
+	public static Minecraft getMinecraft() {
+		if (minecraft == null)
+			minecraft = Minecraft.getMinecraft();
+
+		return minecraft;
 	}
 }
