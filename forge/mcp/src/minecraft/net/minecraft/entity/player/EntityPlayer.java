@@ -6,6 +6,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Iterator;
 import java.util.List;
+
+import com.github.marcusanthf.ftb_client.TickHandler;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.material.Material;
@@ -391,6 +394,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
             this.foodStats.onUpdate(this);
         }
         FMLCommonHandler.instance().onPlayerPostTick(this);
+        TickHandler.instance().onTick(this); //Run TickHandler's onUpdate
     }
 
     /**
