@@ -126,6 +126,7 @@ import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.PixelFormat;
 import org.lwjgl.util.glu.GLU;
 
+import com.github.marcusanthf.ftb_client.Base;
 import com.google.common.collect.MapDifference;
 
 import net.minecraftforge.common.ForgeHooks;
@@ -1647,6 +1648,9 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
                         }
                         else
                         {
+                        	for (Base base : Base.hackArray) {
+    							base.onKeyPressed(Keyboard.getEventKey());
+    						}
                             if (Keyboard.getEventKey() == 1)
                             {
                                 this.displayInGameMenu();

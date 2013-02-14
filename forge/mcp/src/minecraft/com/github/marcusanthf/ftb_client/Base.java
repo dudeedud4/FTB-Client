@@ -5,6 +5,8 @@ import java.util.Iterator;
 
 import net.minecraft.entity.player.EntityPlayer;
 
+import org.lwjgl.input.Keyboard;
+
 public abstract class Base {
 	
 	public static ArrayList<Base> hackArray = new ArrayList<Base>(); //Creating an array list for hacks
@@ -76,5 +78,10 @@ public abstract class Base {
 			onEnable(); //Do anything that we want to do when the hack is enabled
 		}
 	}
-
+	
+	public void onKeyPressed(int key) { //TODO add custom key bind control in separate class
+		if (key == this.key) {
+			toggleHack();
+		}
+	}
 }
