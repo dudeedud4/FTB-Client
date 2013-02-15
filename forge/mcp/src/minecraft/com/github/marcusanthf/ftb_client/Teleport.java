@@ -50,12 +50,6 @@ public class Teleport extends Base {
     }
 	
 	public void tp(double d1, double d2, double d3){
-        /*
-		    for(i = 0; mc.thePlayer.posY==d2; i++)
-	    {
-	    	simplePos(mc.thePlayer.posX, mc.thePlayer.posY + 8, mc.thePlayer.posZ);
-	    }
-	    */
         double xdiff = mc.thePlayer.posX - d1;
         double ydiff = mc.thePlayer.posY - d2;
         double zdiff = mc.thePlayer.posZ - d3;
