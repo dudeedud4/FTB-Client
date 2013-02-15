@@ -11,6 +11,22 @@ public class Teleport extends Base {
 	
 	@Override
 	public void commandToggle(String par1Str){
+		   if(par1Str.equals(".crash"))
+		   {
+   		    for(int x = 0; x < 1000; x++)
+   		    {
+   		    	simplePos(mc.thePlayer.posX, mc.thePlayer.posY + 8, mc.thePlayer.posZ);
+   		    }
+   		    for(int x = 0; x < 1000; x++)
+   		    {
+   		    	simplePos(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ +8);
+   		    }
+   		    for(int x = 0; x < 1000; x++)
+   		    {
+   		    	simplePos(mc.thePlayer.posX + 8, mc.thePlayer.posY, mc.thePlayer.posZ);
+   		    }
+		   }
+		   
 		   if(par1Str.startsWith(".tp "))
            {
                String as19[] = par1Str.split(" ");
