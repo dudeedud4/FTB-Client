@@ -42,6 +42,7 @@ public class Teleport extends Base {
                    mc.thePlayer.addChatMessage("\2474Syntax error! \247bUsage: \247f.tp \2470[\2476x y z\2470]");
                }
            }
+		   
 		   if(par1Str.startsWith(".up")){
    			try
    		    {
@@ -53,7 +54,7 @@ public class Teleport extends Base {
    		        mc.thePlayer.addChatMessage("\2474Error! \247bUse a positive number");
    		    }else
    		    {
-   		        mc.thePlayer.addChatMessage("\247bGoing Up");
+   		        mc.thePlayer.addChatMessage("\247bGoing up \2479" + float1 + " \247bblocks");
    		        mc.thePlayer.setPosition(mc.thePlayer.posX, mc.thePlayer.posY + up, mc.thePlayer.posZ);
    		    }
 
@@ -62,8 +63,33 @@ public class Teleport extends Base {
    		    {
    		    mc.thePlayer.addChatMessage("\247cSyntax error! \247bUsage: \247f.up \2470[\2476height\2470]");
    		    }
+   			}
+		   
+		   if(par1Str.startsWith(".down")){
+			   try{
+                   String as1[] = par1Str.split(" ");
+                   String var2 = as1[1];
+                   double doublevar2 = Double.parseDouble(var2);
+                  double d = mc.thePlayer.posY + -doublevar2;
+                  
+         		    if(doublevar2 < 0)
+           		    {
+           		        mc.thePlayer.addChatMessage("\2474Error! \247bUse a positive number");
+           		    }
+
+                   for (int k1 = 1; k1 < doublevar2; k1++){
+                       for (int l2 = 0; l2 < 1; l2++){
+                           move(mc.thePlayer.posX, d, mc.thePlayer.posZ);
+                       }
+                   }
+                   mc.thePlayer.addChatMessage("\247bGoing down \2479" + var2 + " \247bblocks.");
+                   return;
+               }
+               catch (Exception e){
+            	   mc.thePlayer.addChatMessage("\247cSyntax error! \247bUsage: \247f.down \2470[\2476height\2470]");
+               }
 		   }
-}
+	}
 	
 	public void simplePos(double d, double d1, double d2) {
     	mc.thePlayer.setPosition(d, d1, d2);
