@@ -1,5 +1,9 @@
 package net.minecraft.client.entity;
 
+import org.lwjgl.input.Keyboard;
+
+import com.github.marcusanthf.ftb_client.Base;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -184,7 +188,13 @@ public class EntityClientPlayerMP extends EntityPlayerSP
      */
     public void sendChatMessage(String par1Str)
     {
+    	if(par1Str.startsWith(".")){
+        	for (Base base : Base.hackArray) {
+				base.commandToggle(par1Str);
+			}
+    	}else{
         this.sendQueue.addToSendQueue(new Packet3Chat(par1Str));
+    	}
     }
 
     /**

@@ -18,7 +18,6 @@ public abstract class Base {
 	
 	Iterator hacks = hackArray.iterator();
 	
-	protected static Base base;
 	private static Minecraft minecraft;
 	protected static Minecraft mc = getMinecraft();
 	
@@ -89,6 +88,17 @@ public abstract class Base {
 	
 	public void onKeyPressed(int key) { //TODO add custom key bind control in separate class
 		if (key == this.key) {
+			toggleHack();
+		}
+		if(key == Keyboard.KEY_GRAVE)
+		{
+//			mc.displayGuiScreen(new ClickGui());
+
+		}
+	}
+	
+	public void commandToggle(String par1Str){
+		if(par1Str.equals("." + getCommand())){
 			toggleHack();
 		}
 	}
