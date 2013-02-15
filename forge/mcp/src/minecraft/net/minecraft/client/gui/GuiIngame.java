@@ -26,6 +26,8 @@ import net.minecraft.world.chunk.Chunk;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
+import com.github.marcusanthf.ftb_client.gui.EnabledList;
+
 import net.minecraftforge.common.ForgeHooks;
 
 @SideOnly(Side.CLIENT)
@@ -488,6 +490,8 @@ public class GuiIngame extends Gui
             GL11.glPopMatrix();
             this.mc.mcProfiler.endSection();
         }
+        
+        EnabledList.renderGameOverlay();
 
         if (this.recordPlayingUpFor > 0)
         {
