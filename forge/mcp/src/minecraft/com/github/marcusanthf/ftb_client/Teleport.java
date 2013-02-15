@@ -39,10 +39,31 @@ public class Teleport extends Base {
                }
                catch(Exception exception30)
                {
-                   mc.thePlayer.addChatMessage("\247cSyntax error! \247bUsage: \247f.tp \2470[\2476x y z\2470]");
+                   mc.thePlayer.addChatMessage("\2474Syntax error! \247bUsage: \247f.tp \2470[\2476x y z\2470]");
                }
            }
-	}
+		   if(par1Str.startsWith(".up")){
+   			try
+   		    {
+   		    String as1[] = par1Str.split(" ");
+   		    Float float1 = new Float(as1[1]);
+   		    float up = float1.floatValue();
+   		    if(up < 0)
+   		    {
+   		        mc.thePlayer.addChatMessage("\2474Error! \247bUse a positive number");
+   		    }else
+   		    {
+   		        mc.thePlayer.addChatMessage("\247bGoing Up");
+   		        mc.thePlayer.setPosition(mc.thePlayer.posX, mc.thePlayer.posY + up, mc.thePlayer.posZ);
+   		    }
+
+   		    }
+   		    catch (Exception e)
+   		    {
+   		    mc.thePlayer.addChatMessage("\247cSyntax error! \247bUsage: \247f.up \2470[\2476height\2470]");
+   		    }
+		   }
+}
 	
 	public void simplePos(double d, double d1, double d2) {
     	mc.thePlayer.setPosition(d, d1, d2);
@@ -71,8 +92,8 @@ public class Teleport extends Base {
 	    	}
 	    }while(!(mc.thePlayer.posX>=(d1-8)) || !(mc.thePlayer.posX<=(d1+8)));
 	    move(d1, d2, d3);
-        mc.thePlayer.addChatMessage((new StringBuilder()).append("\2472Teleported to: ").append(d1).append(" ").append(d2).append(" ").append(d3).append(" ").toString());
-        mc.thePlayer.addChatMessage((new StringBuilder()).append("\2472Current position ").append(mc.thePlayer.posX).append(" ").append(mc.thePlayer.posY).append(" ").append(mc.thePlayer.posZ).append(" ").toString());
+        mc.thePlayer.addChatMessage((new StringBuilder()).append("\247bTeleported to: \2479").append(d1).append(" ").append(d2).append(" ").append(d3).append(" ").toString());
+        mc.thePlayer.addChatMessage((new StringBuilder()).append("\247bCurrent position: \2479").append(mc.thePlayer.posX).append(" ").append(mc.thePlayer.posY).append(" ").append(mc.thePlayer.posZ).append(" ").toString());
     }
 	
 	private void move(double d, double d1, double d2){
