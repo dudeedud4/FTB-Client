@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.PlayerControllerMP;
 import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.input.Keyboard;
@@ -111,5 +112,9 @@ public abstract class Base {
 			minecraft = Minecraft.getMinecraft();
 
 		return minecraft;
+	}
+
+	public void clickBlock(PlayerControllerMP playerctrl) {
+		
 	}
 }

@@ -7,7 +7,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Iterator;
 import java.util.List;
 
-import com.github.marcusanthf.ftb_client.TickHandler;
+import com.github.marcusanthf.ftb_client.GameHooks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
@@ -268,7 +268,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
      */
     public void onUpdate()
     {
-        TickHandler.instance().onTick(this); //Run TickHandler's onUpdate
+        GameHooks.instance().onTick(this); //Run TickHandler's onUpdate
         FMLCommonHandler.instance().onPlayerPreTick(this);
         if (this.itemInUse != null)
         {
@@ -395,7 +395,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
             this.foodStats.onUpdate(this);
         }
         FMLCommonHandler.instance().onPlayerPostTick(this);
-        TickHandler.instance().afterTick(this); //Run TickHandler's afterTick
+        GameHooks.instance().afterTick(this); //Run TickHandler's afterTick
     }
 
     /**
