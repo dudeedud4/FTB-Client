@@ -1,5 +1,7 @@
 package net.minecraft.client.multiplayer;
 
+import com.github.marcusanthf.ftb_client.Base;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -279,6 +281,10 @@ public class PlayerControllerMP
 
                 ++this.stepSoundTickCounter;
 
+                if(Base.speedmine.getEnabled()){
+                	this.netClientHandler.addToSendQueue(new Packet14BlockDig(2, par1, par2, par3, par4));
+                }
+                
                 if (this.curBlockDamageMP >= 1.0F)
                 {
                     this.isHittingBlock = false;
@@ -287,7 +293,11 @@ public class PlayerControllerMP
                     this.curBlockDamageMP = 0.0F;
                     this.prevBlockDamageMP = 0.0F;
                     this.stepSoundTickCounter = 0.0F;
+                    if(Base.speedmine.getEnabled()){
+                        this.blockHitDelay = 0;
+                    }else{
                     this.blockHitDelay = 5;
+                    }
                 }
 
                 this.mc.theWorld.destroyBlockInWorldPartially(this.mc.thePlayer.entityId, this.currentBlockX, this.currentBlockY, this.currentblockZ, (int)(this.curBlockDamageMP * 10.0F) - 1);

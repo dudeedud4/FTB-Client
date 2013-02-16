@@ -29,6 +29,7 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static SpeedMine speedmine = new SpeedMine("Speedmine", "speedmine", 0); 
 	public static GodMode godmode = new GodMode("GodMode", "safe", 0); 
 	public static Teleport teleport = new Teleport("Teleport", null, 0); 
 	public static NoFall nofall = new NoFall("Nofall", "nofall", 0); 
