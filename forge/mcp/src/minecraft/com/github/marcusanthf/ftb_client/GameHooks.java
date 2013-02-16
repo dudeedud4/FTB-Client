@@ -35,12 +35,12 @@ public class GameHooks {
 		}
 	}
 	
-	public void clickBlock(PlayerControllerMP playerctrl){ //Run these actions whenever the player clicks on a block
+	public void clickBlock(int var1, int var2, int var3){ //Run these actions whenever the player clicks on a block
 		Iterator hacks = Base.hackArray.iterator(); //Pull in the list of hacks
 		while(hacks.hasNext()){ //When there is a hack
 			Base nexthack = (Base)hacks.next(); //Set the hack to nexthack
 			if(nexthack.getEnabled()){ //If it is enabled
-				nexthack.clickBlock(playerctrl); //Run its onclick
+				nexthack.clickBlock(var1, var2, var3); //Run its onclick
 			}
 		}
 	}

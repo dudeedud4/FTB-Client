@@ -185,7 +185,6 @@ public class PlayerControllerMP
      */
     public void clickBlock(int par1, int par2, int par3, int par4)
     {
-        GameHooks.instance().clickBlock(this);
         if (!this.currentGameType.isAdventure() || this.mc.thePlayer.canCurrentToolHarvestBlock(par1, par2, par3))
         {
             if (this.currentGameType.isCreative())

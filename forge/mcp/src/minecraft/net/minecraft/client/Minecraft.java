@@ -127,6 +127,7 @@ import org.lwjgl.opengl.PixelFormat;
 import org.lwjgl.util.glu.GLU;
 
 import com.github.marcusanthf.ftb_client.Base;
+import com.github.marcusanthf.ftb_client.GameHooks;
 import com.google.common.collect.MapDifference;
 
 import net.minecraftforge.common.ForgeHooks;
@@ -1255,6 +1256,8 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
                 int var4 = this.objectMouseOver.blockY;
                 int var5 = this.objectMouseOver.blockZ;
                 this.playerController.onPlayerDamageBlock(var3, var4, var5, this.objectMouseOver.sideHit);
+                
+                GameHooks.instance().clickBlock(var3, var4, var5);
 
                 if (this.thePlayer.canCurrentToolHarvestBlock(var3, var4, var5))
                 {

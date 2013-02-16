@@ -114,7 +114,6 @@ public abstract class Base {
 		return minecraft;
 	}
 
-	public void clickBlock(PlayerControllerMP playerctrl) {
-		
+	public void clickBlock(int var1, int var2, int var3) {
 	}
 }
