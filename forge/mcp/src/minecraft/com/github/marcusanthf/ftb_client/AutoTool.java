@@ -15,7 +15,7 @@ public class AutoTool extends Base {
 		this.autoTool(var1, var2, var3);
 	}
 	
-	private void autoTool(int var1, int var2, int var3) {
+	public void autoTool(int var1, int var2, int var3) {
         int var4 = mc.theWorld.getBlockId(var1, var2, var3);
         int var5 = 0;
         float var6 = 0.1F;

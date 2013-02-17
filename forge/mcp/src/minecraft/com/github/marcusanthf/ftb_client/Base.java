@@ -30,6 +30,8 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static Nuker nuker = new Nuker("Nuker", null, 0);
+	public static GetBlockName getblockname = new GetBlockName("Boloque", null, 0);
 	public static AutoTool autotool = new AutoTool("AutoTool", "autotool", 0); 
 	public static SpeedMine speedmine = new SpeedMine("Speedmine", "speedmine", 0); 
 	public static GodMode godmode = new GodMode("GodMode", "safe", 0); 
