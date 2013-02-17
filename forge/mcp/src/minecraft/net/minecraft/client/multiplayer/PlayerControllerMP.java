@@ -315,7 +315,11 @@ public class PlayerControllerMP
      */
     public float getBlockReachDistance()
     {
+    	if(Base.reach.getEnabled()){
+    		return 5.5F;
+    	}else{
         return this.currentGameType.isCreative() ? 5.0F : 4.5F;
+    	}
     }
 
     public void updateController()

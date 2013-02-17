@@ -31,6 +31,7 @@ public abstract class Base {
 	 */
 	
 	public static Help help = new Help("Help", null, 0);
+	public static Reach reach = new Reach("Reach", "reach", 0);
 	public static BowAimbot bowaimbot = new BowAimbot("BowAimbot", "bowaim", 0);
 	public static Nuker nuker = new Nuker("Nuker", null, 0);
 	public static GetBlockName getblockname = new GetBlockName("Boloque", null, 0);
