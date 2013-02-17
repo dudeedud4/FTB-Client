@@ -34,7 +34,7 @@ public class EnabledList extends Base{
 					String name = nexthack.getName(); //name = name of hack
 					int width = (mc.fontRenderer.getStringWidth(name)+4); //width will be the length of the hack name + 4
 					GuiMethods.drawBorderedRect(0, y1, width, y2+1, 2, 0x804e5453, 0x80000000); //drawn a rectangle around the name
-					mc.fontRenderer.drawString(name, 2, y1+1, 0xFFFFFF);
+					mc.fontRenderer.drawString(name, 2, y1+2, 0xFFFFFF);
 		    		y1 += 12;
 				}
 			}
