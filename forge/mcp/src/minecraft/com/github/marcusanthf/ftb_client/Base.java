@@ -32,6 +32,7 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static OpAbuse opabuse = new OpAbuse("OpAbuse", null, 0);
 	public static Tracers tracers = new Tracers("Tracers", "tracers", 0);
 	public static KillAura killaura = new KillAura("Killaura", "killaura", 0);
 	public static Jesus jesus = new Jesus("Jesus", "jesus", 0);
