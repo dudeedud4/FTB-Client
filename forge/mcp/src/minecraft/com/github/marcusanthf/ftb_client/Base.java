@@ -5,7 +5,9 @@ import java.util.Iterator;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.PlayerControllerMP;
+import net.minecraft.client.renderer.culling.ICamera;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.Vec3;
 
 import org.lwjgl.input.Keyboard;
 
@@ -30,6 +32,7 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static Tracers tracers = new Tracers("Tracers", "tracers", 0);
 	public static KillAura killaura = new KillAura("Killaura", "killaura", 0);
 	public static Jesus jesus = new Jesus("Jesus", "jesus", 0);
 	public static SetKey setkey = new SetKey("SetKey", null, 0);
@@ -128,4 +131,6 @@ public abstract class Base {
 
 	public void clickBlock(int var1, int var2, int var3) {
 	}
+
+	public void renderEntities(Vec3 par1Vec3, ICamera par2iCamera, float par3) {}
 }

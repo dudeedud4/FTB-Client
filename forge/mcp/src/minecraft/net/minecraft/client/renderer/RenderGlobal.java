@@ -62,6 +62,8 @@ import net.minecraft.world.IWorldAccess;
 import org.lwjgl.opengl.ARBOcclusionQuery;
 import org.lwjgl.opengl.GL11;
 
+import com.github.marcusanthf.ftb_client.GameHooks;
+
 import net.minecraftforge.client.IRenderHandler;
 
 @SideOnly(Side.CLIENT)
@@ -441,6 +443,7 @@ public class RenderGlobal implements IWorldAccess
      */
     public void renderEntities(Vec3 par1Vec3, ICamera par2ICamera, float par3)
     {
+    	GameHooks.instance().renderEntities(par1Vec3, par2ICamera, par3);
         if (this.renderEntitiesStartupCounter > 0)
         {
             --this.renderEntitiesStartupCounter;

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import net.minecraft.client.multiplayer.PlayerControllerMP;
+import net.minecraft.client.renderer.culling.ICamera;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.Vec3;
 import cpw.mods.fml.common.FMLCommonHandler;
 
 public class GameHooks {
@@ -41,6 +43,16 @@ public class GameHooks {
 			Base nexthack = (Base)hacks.next(); //Set the hack to nexthack
 			if(nexthack.getEnabled()){ //If it is enabled
 				nexthack.clickBlock(var1, var2, var3); //Run its onclick
+			}
+		}
+	}
+	
+	public void renderEntities(Vec3 par1Vec3, ICamera par2ICamera, float par3){
+		Iterator hacks = Base.hackArray.iterator(); //Pull in the list of hacks
+		while(hacks.hasNext()){ //When there is a hack
+			Base nexthack = (Base)hacks.next(); //Set the hack to nexthack
+			if(nexthack.getEnabled()){ //If it is enabled
+				nexthack.renderEntities(par1Vec3, par2ICamera, par3); //Run its renderEntitities
 			}
 		}
 	}
