@@ -25,6 +25,7 @@ public class Freecam extends Base {
         this.oldyaw = mc.thePlayer.rotationYaw;
         this.prevfly = Base.fly.hackToggle;
         Base.fly.hackToggle = true;
+        mc.thePlayer.isDead = true;
         mc.thePlayer.noClip = true;
 	}
 	
@@ -33,6 +34,7 @@ public class Freecam extends Base {
 		mc.thePlayer.setPositionAndRotation(this.oldposx, this.oldposy, this.oldposz, this.oldyaw, this.oldpitch);
 		mc.thePlayer.noClip = false;
 		Base.fly.hackToggle = this.prevfly;
+        mc.thePlayer.isDead = false;
 		this.inprogress = false;
 	}
 	
