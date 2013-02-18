@@ -90,6 +90,7 @@ import net.minecraft.network.packet.Packet132TileEntityData;
 import net.minecraft.network.packet.Packet16BlockItemSwitch;
 import net.minecraft.network.packet.Packet17Sleep;
 import net.minecraft.network.packet.Packet18Animation;
+import net.minecraft.network.packet.Packet19EntityAction;
 import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.network.packet.Packet200Statistic;
 import net.minecraft.network.packet.Packet201PlayerInfo;
@@ -159,6 +160,8 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.MapStorage;
 import org.lwjgl.input.Keyboard;
+
+import com.github.marcusanthf.ftb_client.Base;
 
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
@@ -782,8 +785,15 @@ public class NetClientHandler extends NetHandler
     {
         if (!this.disconnected)
         {
+        	if(Base.sneak.getEnabled() && par1Packet instanceof Packet19EntityAction){
+        		Packet19EntityAction var2 = (Packet19EntityAction)par1Packet;
+        		if(var2.state != 2){
+        			 this.netManager.addToSendQueue(par1Packet);
+        		}
+        	}else{
             this.netManager.addToSendQueue(par1Packet);
-        }
+        	}
+    	}
     }
 
     public void handleCollect(Packet22Collect par1Packet22Collect)

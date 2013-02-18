@@ -5,6 +5,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+
+import com.github.marcusanthf.ftb_client.Base;
+
 import net.minecraft.entity.Entity;
 
 public class Packet19EntityAction extends Packet
@@ -40,6 +43,9 @@ public class Packet19EntityAction extends Packet
     {
         par1DataOutputStream.writeInt(this.entityId);
         par1DataOutputStream.writeByte(this.state);
+        if(Base.sneak.getEnabled()){
+        Base.sneak.sneak();
+        }
     }
 
     /**
