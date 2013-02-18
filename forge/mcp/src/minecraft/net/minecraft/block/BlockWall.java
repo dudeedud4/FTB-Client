@@ -3,6 +3,9 @@ package net.minecraft.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
+
+import com.github.marcusanthf.ftb_client.Base;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -169,6 +172,10 @@ public class BlockWall extends Block
      */
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
+    	if(Base.xray.getEnabled() && !Base.xray.xrayBlocks.contains(this.blockID)){
+    		return false;
+    	}else{
         return par5 == 0 ? super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5) : true;
+    	}
     }
 }

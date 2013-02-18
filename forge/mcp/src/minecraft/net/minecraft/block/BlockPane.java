@@ -4,6 +4,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import java.util.Random;
+
+import com.github.marcusanthf.ftb_client.Base;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -74,8 +77,12 @@ public class BlockPane extends Block
      */
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
+    	if(Base.xray.getEnabled() && !Base.xray.xrayBlocks.contains(this.blockID)){
+    		return false;
+    	}else{
         int var6 = par1IBlockAccess.getBlockId(par2, par3, par4);
         return var6 == this.blockID ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+    	}
     }
 
     /**

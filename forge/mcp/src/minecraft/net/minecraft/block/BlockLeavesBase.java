@@ -1,5 +1,7 @@
 package net.minecraft.block;
 
+import com.github.marcusanthf.ftb_client.Base;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -36,7 +38,11 @@ public class BlockLeavesBase extends Block
      */
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
+    	if(Base.xray.getEnabled() && !Base.xray.xrayBlocks.contains(this.blockID)){
+    		return false;
+    	}else{
         int var6 = par1IBlockAccess.getBlockId(par2, par3, par4);
         return !this.graphicsLevel && var6 == this.blockID ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+    	}
     }
 }

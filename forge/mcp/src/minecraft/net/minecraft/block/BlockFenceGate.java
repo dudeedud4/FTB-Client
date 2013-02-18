@@ -1,5 +1,7 @@
 package net.minecraft.block;
 
+import com.github.marcusanthf.ftb_client.Base;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
@@ -164,6 +166,10 @@ public class BlockFenceGate extends BlockDirectional
      */
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
+    	if(Base.xray.getEnabled() && !Base.xray.xrayBlocks.contains(this.blockID)){
+    		return false;
+    	}else{
         return true;
+    	}
     }
 }

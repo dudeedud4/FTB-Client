@@ -3,6 +3,9 @@ package net.minecraft.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
+
+import com.github.marcusanthf.ftb_client.Base;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -141,6 +144,10 @@ public class BlockSnow extends Block
      */
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
+    	if(Base.xray.getEnabled()){
+    		return false;
+    	}else{
         return par5 == 1 ? true : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+    	}
     }
 }

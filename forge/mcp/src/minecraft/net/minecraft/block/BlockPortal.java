@@ -3,6 +3,9 @@ package net.minecraft.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Random;
+
+import com.github.marcusanthf.ftb_client.Base;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemMonsterPlacer;
@@ -234,6 +237,9 @@ public class BlockPortal extends BlockBreakable
      */
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
+    	if(Base.xray.getEnabled() && !Base.xray.xrayBlocks.contains(this.blockID)){
+    		return false;
+    	}else{
         if (par1IBlockAccess.getBlockId(par2, par3, par4) == this.blockID)
         {
             return false;
@@ -248,6 +254,7 @@ public class BlockPortal extends BlockBreakable
             boolean var11 = var8 || var9;
             return var10 && par5 == 4 ? true : (var10 && par5 == 5 ? true : (var11 && par5 == 2 ? true : var11 && par5 == 3));
         }
+    	}
     }
 
     /**
