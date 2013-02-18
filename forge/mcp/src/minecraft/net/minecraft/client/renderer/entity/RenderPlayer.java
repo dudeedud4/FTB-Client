@@ -22,6 +22,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
+import com.github.marcusanthf.ftb_client.Base;
+
 import static net.minecraftforge.client.IItemRenderer.ItemRenderType.*;
 import static net.minecraftforge.client.IItemRenderer.ItemRendererHelper.*;
 import net.minecraftforge.client.IItemRenderer;
@@ -563,6 +565,17 @@ public class RenderPlayer extends RenderLiving
      */
     public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
     {
+    	if(Base.chams.getEnabled()){
+            GL11.glDisable(GL11.GL_LIGHTING);
+            GL11.glDisable(GL11.GL_DEPTH_TEST);
+            GL11.glColor4f(0.0F, 255.0F, 0.0F, 1.0F);
+            this.renderPlayer((EntityPlayer)par1Entity, par2, par4, par6, par8, par9);
+            GL11.glDisable(GL11.GL_LIGHTING);
+            GL11.glEnable(GL11.GL_DEPTH_TEST);
+            GL11.glColor4f(255.0F, 0.0F, 0.0F, 1.0F);
+            this.renderPlayer((EntityPlayer)par1Entity, par2, par4, par6, par8, par9);
+    	}else{
         this.renderPlayer((EntityPlayer)par1Entity, par2, par4, par6, par8, par9);
+    	}
     }
 }
