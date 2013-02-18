@@ -74,7 +74,9 @@ public class Xray extends Base{
 	
 	@Override
 	public void onDisable(){
+		if(!Base.fullbright.getEnabled()){
 		mc.gameSettings.gammaSetting = 1F;
+		}
 		mc.renderGlobal.loadRenderers();
 	}
 
