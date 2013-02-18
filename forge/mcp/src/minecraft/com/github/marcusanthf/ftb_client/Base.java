@@ -15,7 +15,7 @@ public abstract class Base {
 	public boolean hackToggle; //Tells if the hack is on or off
 	private String name; //Hack name
 	private String command; //Command to activate hack
-	private int key; //Key to activate hack
+	protected int key; //Key to activate hack
 	
 	Iterator hacks = hackArray.iterator();
 	
@@ -30,7 +30,8 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
-	public static FlyBypass flybypass = new FlyBypass("Fly Bypass", "flybypass", 0);
+	public static SetKey setkey = new SetKey("SetKey", null, 0);
+	public static FlyBypass flybypass = new FlyBypass("FlyBypass", "flybypass", 0);
 	public static Xray xray = new Xray("Xray", "xray", Keyboard.KEY_N);
 	public static Fullbright fullbright = new Fullbright("Fullbright", "fb", 0);
 	public static Help help = new Help("Help", null, 0);

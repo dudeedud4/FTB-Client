@@ -29,7 +29,7 @@ public class EnabledList extends Base{
 			int y1 = 2; //start at 2 to leave a gap
 			while(hacks.hasNext()){ //When there is a hack
 				Base nexthack = (Base)hacks.next(); //Set the hack to nexthack
-				if(nexthack.getEnabled()){ //If it is enabled
+				if(nexthack.getEnabled() && nexthack != setkey){ //If it is enabled
 					int y2 = y1 + 10; //y2 will add the string height to y1
 					String name = nexthack.getName(); //name = name of hack
 					int width = (mc.fontRenderer.getStringWidth(name)+4); //width will be the length of the hack name + 4
