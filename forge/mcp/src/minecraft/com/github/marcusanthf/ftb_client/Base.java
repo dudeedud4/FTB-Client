@@ -11,6 +11,8 @@ import net.minecraft.util.Vec3;
 
 import org.lwjgl.input.Keyboard;
 
+import com.github.marcusanthf.ftb_client.gui.Click;
+
 public abstract class Base {
 	
 	public static ArrayList<Base> hackArray = new ArrayList<Base>(); //Creating an array list for hacks
@@ -32,6 +34,9 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static Chams chams = new Chams("Chams", "chams", 0);
+	public static NoSwing noswing = new NoSwing("NoSwing", "noswing", 0);
+	public static FastPlace fastplace = new FastPlace("Fastplace", "fastplace", 0);
 	public static Freecam freecam = new Freecam("Freecam", "fc", 0);
 	public static Derp derp = new Derp("Derp", null, 0);
 	public static Emo emo = new Emo("Emo", "emo", 0);
@@ -117,7 +122,7 @@ public abstract class Base {
 		}
 		if(key == Keyboard.KEY_GRAVE)
 		{
-//			mc.displayGuiScreen(new ClickGui());
+			mc.displayGuiScreen(new Click());
 
 		}
 	}
