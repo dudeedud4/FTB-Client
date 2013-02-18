@@ -30,6 +30,7 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static KillAura killaura = new KillAura("Killaura", "killaura", 0);
 	public static Jesus jesus = new Jesus("Jesus", "jesus", 0);
 	public static SetKey setkey = new SetKey("SetKey", null, 0);
 	public static FlyBypass flybypass = new FlyBypass("FlyBypass", "flybypass", 0);
