@@ -30,6 +30,7 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static FlyBypass flybypass = new FlyBypass("Fly Bypass", "flybypass", 0);
 	public static Xray xray = new Xray("Xray", "xray", Keyboard.KEY_N);
 	public static Fullbright fullbright = new Fullbright("Fullbright", "fb", 0);
 	public static Help help = new Help("Help", null, 0);
