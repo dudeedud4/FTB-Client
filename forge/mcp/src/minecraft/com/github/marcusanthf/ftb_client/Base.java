@@ -34,6 +34,7 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static AutoFish autofish = new AutoFish("AutoFish", "autofish", 0);
 	public static Sneak sneak = new Sneak("Sneak", "sneak", 0);
 	public static Chams chams = new Chams("Chams", "chams", 0);
 	public static NoSwing noswing = new NoSwing("NoSwing", "noswing", 0);

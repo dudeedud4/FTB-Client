@@ -1276,7 +1276,7 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
      * Called whenever the mouse is clicked. Button clicked is 0 for left clicking and 1 for right clicking. Args:
      * buttonClicked
      */
-    private void clickMouse(int par1)
+    public void clickMouse(int par1)
     {
         if (par1 != 0 || this.leftClickCounter <= 0)
         {

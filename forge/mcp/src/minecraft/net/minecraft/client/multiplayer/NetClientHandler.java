@@ -522,6 +522,15 @@ public class NetClientHandler extends NetHandler
     public void handleEntityVelocity(Packet28EntityVelocity par1Packet28EntityVelocity)
     {
         Entity var2 = this.getEntityByID(par1Packet28EntityVelocity.entityId);
+        
+    	if(Base.autofish.getEnabled()){
+    		if(var2 instanceof EntityFishHook){
+    			if(par1Packet28EntityVelocity.motionX == 0 && par1Packet28EntityVelocity.motionY != 0 && par1Packet28EntityVelocity.motionZ == 0){
+    				mc.clickMouse(1);
+    				mc.clickMouse(1);
+    			}
+    		}
+    	}
 
         if (var2 != null)
         {
