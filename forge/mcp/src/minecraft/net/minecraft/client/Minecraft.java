@@ -1287,7 +1287,11 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
 
             if (par1 == 1)
             {
-                this.rightClickDelayTimer = 4;
+            	if(Base.fastplace.getEnabled()){
+            		this.rightClickDelayTimer = 0;
+            	}else{
+            		this.rightClickDelayTimer = 4;
+            	}
             }
 
             boolean var2 = true;
