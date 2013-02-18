@@ -273,6 +273,9 @@ public class PlayerControllerMP
                 }
 
                 Block var6 = Block.blocksList[var5];
+                if(Base.freecam.getEnabled()){
+                	curBlockDamageMP = 0.0F;
+                }
                 this.curBlockDamageMP += var6.getPlayerRelativeBlockHardness(this.mc.thePlayer, this.mc.thePlayer.worldObj, par1, par2, par3);
 
                 if (this.stepSoundTickCounter % 4.0F == 0.0F && var6 != null)

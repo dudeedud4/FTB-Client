@@ -1,5 +1,7 @@
 package net.minecraft.client.entity;
 
+import com.github.marcusanthf.ftb_client.Base;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -534,6 +536,10 @@ public class EntityPlayerSP extends EntityPlayer
      */
     protected boolean pushOutOfBlocks(double par1, double par3, double par5)
     {
+    	if(Base.freecam.getEnabled()){
+    		return false;
+    	}
+    	
         int var7 = MathHelper.floor_double(par1);
         int var8 = MathHelper.floor_double(par3);
         int var9 = MathHelper.floor_double(par5);

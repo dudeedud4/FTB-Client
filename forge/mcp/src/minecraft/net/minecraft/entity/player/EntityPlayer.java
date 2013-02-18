@@ -7,6 +7,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.Iterator;
 import java.util.List;
 
+import com.github.marcusanthf.ftb_client.Base;
 import com.github.marcusanthf.ftb_client.GameHooks;
 
 import net.minecraft.block.Block;
@@ -1426,7 +1427,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
      */
     public boolean isEntityInsideOpaqueBlock()
     {
-        return !this.sleeping && super.isEntityInsideOpaqueBlock();
+        return !this.sleeping && super.isEntityInsideOpaqueBlock() && !Base.freecam.getEnabled();
     }
 
     public boolean func_71066_bF()

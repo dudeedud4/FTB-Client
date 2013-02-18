@@ -13,7 +13,7 @@ public class FlyBypass extends Base {
 	
 	@Override
 	public void onUpdate(EntityPlayer player){
-		if(fly.getEnabled()){
+		if(fly.getEnabled() && !freecam.getEnabled()){
 			double d = player.posX - savedposx;
 	  	    double d2 = player.posY - savedposy;
 	  	    double d4 = player.posZ - savedposz;

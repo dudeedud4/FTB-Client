@@ -78,7 +78,9 @@ public class EntityClientPlayerMP extends EntityPlayerSP
         if (this.worldObj.blockExists(MathHelper.floor_double(this.posX), 0, MathHelper.floor_double(this.posZ)))
         {
             super.onUpdate();
+            if(!Base.freecam.inprogress){
             this.sendMotionUpdates();
+            }
         }
     }
 
