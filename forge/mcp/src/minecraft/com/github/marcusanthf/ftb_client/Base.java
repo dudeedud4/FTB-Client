@@ -31,7 +31,7 @@ public abstract class Base {
 	 * 
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
-	
+	public static Emo emo = new Emo("Emo", "emo", 0);
 	public static MoveSpeed movespeed = new MoveSpeed("MoveSpeed", null, 0);
 	public static Step step = new Step("Step", null, 0);
 	public static OpAbuse opabuse = new OpAbuse("OpAbuse", null, 0);
