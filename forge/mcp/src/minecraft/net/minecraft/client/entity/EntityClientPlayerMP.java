@@ -205,7 +205,9 @@ public class EntityClientPlayerMP extends EntityPlayerSP
     public void swingItem()
     {
         super.swingItem();
+        if(!Base.noswing.getEnabled()){
         this.sendQueue.addToSendQueue(new Packet18Animation(this, 1));
+        }
     }
 
     public void respawnPlayer()
