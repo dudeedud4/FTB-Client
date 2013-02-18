@@ -1342,7 +1342,7 @@ net/minecraft/util/EnumOS 8caae3e3b9ac369338c97e2a1fdaa9a6
 net/minecraft/util/Facing adce2f68375196cad6ffcef32f7a1a15
 net/minecraft/util/FoodStats a95415f97a3a5d64cbef82a7703b503a
 net/minecraft/util/HttpUtil d5a7272abafdfd1c7e858ef04e854c4a
-net/minecraft/util/HttpUtilRunnable d12b750ca9dfae6995b9158a5fc322cd
+net/minecraft/util/HttpUtilRunnable 0f3274e8cf9d50d5adeb3df5cbb9d499
 net/minecraft/util/IDownloadSuccess 6342d8e4c38b4530cf10c7850b51fc15
 net/minecraft/util/IntHashMap 6456d82e21192bfc381c1e5708c05154
 net/minecraft/util/IntHashMapEntry a0f2d777e0ae4ee734298df87f39cff7
@@ -1401,7 +1401,7 @@ net/minecraft/world/ServerBlockEvent 1a1798432a00e881db9aefedbc0eab5a
 net/minecraft/world/ServerBlockEventList 7aef487d478e0c21456e6d028d899b4b
 net/minecraft/world/SpawnerAnimals a6a1abfdd820285ab43af21ce6411765
 net/minecraft/world/Teleporter ff5c1ee967ff45027b0999a4a721c058
-net/minecraft/world/World 8fa7fec989181fb688b30d5276069ce9
+net/minecraft/world/World 7bb68dcf719417b6ef56146731ddc8e6
 net/minecraft/world/WorldManager 615bc962000b879fd6dc1a8b85bfe6dc
 net/minecraft/world/WorldProvider 5c7e6a2426a1b43862b03384f9488765
 net/minecraft/world/WorldProviderEnd e65e2dd89e5c8e07225fca6027c1a70a

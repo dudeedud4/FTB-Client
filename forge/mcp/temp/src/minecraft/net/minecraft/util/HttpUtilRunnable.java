@@ -51,82 +51,78 @@ final class HttpUtilRunnable implements Runnable {
       }
 
       try {
-         try {
-            byte[] var4 = new byte[4096];
-            URL var5 = new URL(this.field_76176_b);
-            var1 = var5.openConnection();
-            float var6 = 0.0F;
-            float var7 = (float)this.field_76177_c.entrySet().size();
-            Iterator var8 = this.field_76177_c.entrySet().iterator();
+         byte[] var4 = new byte[4096];
+         URL var5 = new URL(this.field_76176_b);
+         var1 = var5.openConnection();
+         float var6 = 0.0F;
+         float var7 = (float)this.field_76177_c.entrySet().size();
+         Iterator var8 = this.field_76177_c.entrySet().iterator();
 
-            while(var8.hasNext()) {
-               Entry var9 = (Entry)var8.next();
-               var1.setRequestProperty((String)var9.getKey(), (String)var9.getValue());
-               if(this.field_76178_a != null) {
-                  this.field_76178_a.func_73718_a((int)(++var6 / var7 * 100.0F));
-               }
-            }
-
-            var2 = var1.getInputStream();
-            var7 = (float)var1.getContentLength();
-            int var28 = var1.getContentLength();
+         while(var8.hasNext()) {
+            Entry var9 = (Entry)var8.next();
+            var1.setRequestProperty((String)var9.getKey(), (String)var9.getValue());
             if(this.field_76178_a != null) {
-               this.field_76178_a.func_73719_c(String.format("Downloading file (%.2f MB)...", new Object[]{Float.valueOf(var7 / 1000.0F / 1000.0F)}));
+               this.field_76178_a.func_73718_a((int)(++var6 / var7 * 100.0F));
             }
+         }
 
-            if(this.field_76174_d.exists()) {
-               long var29 = this.field_76174_d.length();
-               if(var29 == (long)var28) {
-                  this.field_76175_e.func_76170_a(this.field_76174_d);
-                  if(this.field_76178_a != null) {
-                     this.field_76178_a.func_73717_a();
-                  }
+         var2 = var1.getInputStream();
+         var7 = (float)var1.getContentLength();
+         int var28 = var1.getContentLength();
+         if(this.field_76178_a != null) {
+            this.field_76178_a.func_73719_c(String.format("Downloading file (%.2f MB)...", new Object[]{Float.valueOf(var7 / 1000.0F / 1000.0F)}));
+         }
 
-                  return;
-               }
-
-               System.out.println("Deleting " + this.field_76174_d + " as it does not match what we currently have (" + var28 + " vs our " + var29 + ").");
-               this.field_76174_d.delete();
-            }
-
-            var3 = new DataOutputStream(new FileOutputStream(this.field_76174_d));
-            if(this.field_76173_f > 0 && var7 > (float)this.field_76173_f) {
+         if(this.field_76174_d.exists()) {
+            long var29 = this.field_76174_d.length();
+            if(var29 == (long)var28) {
+               this.field_76175_e.func_76170_a(this.field_76174_d);
                if(this.field_76178_a != null) {
                   this.field_76178_a.func_73717_a();
                }
 
-               throw new IOException("Filesize is bigger than maximum allowed (file is " + var6 + ", limit is " + this.field_76173_f + ")");
-            }
-
-            boolean var31 = false;
-
-            int var30;
-            while((var30 = var2.read(var4)) >= 0) {
-               var6 += (float)var30;
-               if(this.field_76178_a != null) {
-                  this.field_76178_a.func_73718_a((int)(var6 / var7 * 100.0F));
-               }
-
-               if(this.field_76173_f > 0 && var6 > (float)this.field_76173_f) {
-                  if(this.field_76178_a != null) {
-                     this.field_76178_a.func_73717_a();
-                  }
-
-                  throw new IOException("Filesize was bigger than maximum allowed (got >= " + var6 + ", limit was " + this.field_76173_f + ")");
-               }
-
-               var3.write(var4, 0, var30);
-            }
-
-            this.field_76175_e.func_76170_a(this.field_76174_d);
-            if(this.field_76178_a != null) {
-               this.field_76178_a.func_73717_a();
                return;
             }
-         } catch (Throwable var26) {
-            var26.printStackTrace();
+
+            System.out.println("Deleting " + this.field_76174_d + " as it does not match what we currently have (" + var28 + " vs our " + var29 + ").");
+            this.field_76174_d.delete();
          }
 
+         var3 = new DataOutputStream(new FileOutputStream(this.field_76174_d));
+         if(this.field_76173_f > 0 && var7 > (float)this.field_76173_f) {
+            if(this.field_76178_a != null) {
+               this.field_76178_a.func_73717_a();
+            }
+
+            throw new IOException("Filesize is bigger than maximum allowed (file is " + var6 + ", limit is " + this.field_76173_f + ")");
+         }
+
+         boolean var31 = false;
+
+         int var30;
+         while((var30 = var2.read(var4)) >= 0) {
+            var6 += (float)var30;
+            if(this.field_76178_a != null) {
+               this.field_76178_a.func_73718_a((int)(var6 / var7 * 100.0F));
+            }
+
+            if(this.field_76173_f > 0 && var6 > (float)this.field_76173_f) {
+               if(this.field_76178_a != null) {
+                  this.field_76178_a.func_73717_a();
+               }
+
+               throw new IOException("Filesize was bigger than maximum allowed (got >= " + var6 + ", limit was " + this.field_76173_f + ")");
+            }
+
+            var3.write(var4, 0, var30);
+         }
+
+         this.field_76175_e.func_76170_a(this.field_76174_d);
+         if(this.field_76178_a != null) {
+            this.field_76178_a.func_73717_a();
+         }
+      } catch (Throwable var26) {
+         var26.printStackTrace();
       } finally {
          try {
             if(var2 != null) {
@@ -145,5 +141,6 @@ final class HttpUtilRunnable implements Runnable {
          }
 
       }
+
    }
 }
