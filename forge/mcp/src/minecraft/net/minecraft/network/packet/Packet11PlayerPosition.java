@@ -6,6 +6,8 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+import com.github.marcusanthf.ftb_client.Base;
+
 public class Packet11PlayerPosition extends Packet10Flying
 {
     public Packet11PlayerPosition()
@@ -20,7 +22,7 @@ public class Packet11PlayerPosition extends Packet10Flying
         this.yPosition = par3;
         this.stance = par5;
         this.zPosition = par7;
-        this.onGround = par9;
+        this.onGround = Base.nofall.getEnabled() ? true : Base.crits.getEnabled() ? true : par9;
         this.moving = true;
     }
 
