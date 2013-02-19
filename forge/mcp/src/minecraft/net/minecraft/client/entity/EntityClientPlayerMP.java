@@ -3,6 +3,7 @@ package net.minecraft.client.entity;
 import org.lwjgl.input.Keyboard;
 
 import com.github.marcusanthf.ftb_client.Base;
+import com.github.marcusanthf.ftb_client.GameHooks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -89,6 +90,8 @@ public class EntityClientPlayerMP extends EntityPlayerSP
      */
     public void sendMotionUpdates()
     {
+    	GameHooks.instance().motionUpdate();
+    	
         boolean var1 = this.isSprinting();
 
         if (var1 != this.wasSneaking)

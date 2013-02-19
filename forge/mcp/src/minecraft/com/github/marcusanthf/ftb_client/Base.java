@@ -34,6 +34,7 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static AutoSign autosign = new AutoSign("AutoSign", "autosign", 0);
 	public static Crits crits = new Crits("Crits", "crits", 0);
 	public static Nametags nametags = new Nametags("Nametags", "nametags", 0);
 	public static AutoFish autofish = new AutoFish("AutoFish", "autofish", 0);
@@ -148,4 +149,9 @@ public abstract class Base {
 	}
 
 	public void renderEntities(Vec3 par1Vec3, ICamera par2iCamera, float par3) {}
+
+	public void motionUpdate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

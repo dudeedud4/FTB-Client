@@ -17,6 +17,16 @@ public class GameHooks {
 	    return INSTANCE;
 	}
 	
+	public void motionUpdate(){
+		Iterator hacks = Base.hackArray.iterator(); //Pull in the list of hacks
+		while(hacks.hasNext()){ //When there is a hack
+			Base nexthack = (Base)hacks.next(); //Set the hack to nexthack
+			if(nexthack.getEnabled()){ //If it is enabled
+				nexthack.motionUpdate(); //Run its onupdate
+			}
+		}
+	}
+	
 	public void onTick(EntityPlayer player){ //Run these actions every tick in EntityPlayer
 		Iterator hacks = Base.hackArray.iterator(); //Pull in the list of hacks
 		while(hacks.hasNext()){ //When there is a hack
