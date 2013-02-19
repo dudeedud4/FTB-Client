@@ -11,8 +11,6 @@ import net.minecraft.util.Vec3;
 
 import org.lwjgl.input.Keyboard;
 
-import com.github.marcusanthf.ftb_client.gui.Click;
-
 public abstract class Base {
 	
 	public static ArrayList<Base> hackArray = new ArrayList<Base>(); //Creating an array list for hacks
@@ -127,7 +125,6 @@ public abstract class Base {
 		}
 		if(key == Keyboard.KEY_GRAVE)
 		{
-			mc.displayGuiScreen(new Click());
 
 		}
 	}
