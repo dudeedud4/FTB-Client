@@ -18,6 +18,8 @@ import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
+import com.github.marcusanthf.ftb_client.Base;
+
 @SideOnly(Side.CLIENT)
 public class RenderLiving extends Render
 {
@@ -405,11 +407,20 @@ public class RenderLiving extends Render
     protected void renderLivingLabel(EntityLiving par1EntityLiving, String par2Str, double par3, double par5, double par7, int par9)
     {
         double var10 = par1EntityLiving.getDistanceSqToEntity(this.renderManager.livingPlayer);
-
-        if (var10 <= (double)(par9 * par9))
+        
+        if (Base.nametags.getEnabled() && var10/2 <= (double)(par9 * par9) || var10 <= (double)(par9 * par9))
         {
             FontRenderer var12 = this.getFontRendererFromRenderManager();
             float var13 = 1.6F;
+            if(!Base.nametags.getEnabled()){
+            	var13 = 1.6F;
+            }else{
+            	if(var10 <= 1000){
+            	var13 = 0.4F * par1EntityLiving.getDistanceToEntity(this.renderManager.livingPlayer);
+            	}else{
+            		var13 = 0.3F * par1EntityLiving.getDistanceToEntity(this.renderManager.livingPlayer);
+            	}
+            }
             float var14 = 0.016666668F * var13;
             GL11.glPushMatrix();
             GL11.glTranslatef((float)par3 + 0.0F, (float)par5 + 2.3F, (float)par7);
@@ -425,7 +436,7 @@ public class RenderLiving extends Render
             Tessellator var15 = Tessellator.instance;
             byte var16 = 0;
 
-            if (par2Str.equals("deadmau5"))
+            if (par2Str.equals("deadmau5") || par2Str.equals("marcusant"));
             {
                 var16 = -10;
             }
@@ -433,17 +444,25 @@ public class RenderLiving extends Render
             GL11.glDisable(GL11.GL_TEXTURE_2D);
             var15.startDrawingQuads();
             int var17 = var12.getStringWidth(par2Str) / 2;
+            if(Base.nametags.getEnabled()){
+                var15.setColorRGBA_F(0.0F, 0.0F, 0.0F, 5.0F);
+            }else{
             var15.setColorRGBA_F(0.0F, 0.0F, 0.0F, 0.25F);
+            }
             var15.addVertex((double)(-var17 - 1), (double)(-1 + var16), 0.0D);
             var15.addVertex((double)(-var17 - 1), (double)(8 + var16), 0.0D);
             var15.addVertex((double)(var17 + 1), (double)(8 + var16), 0.0D);
             var15.addVertex((double)(var17 + 1), (double)(-1 + var16), 0.0D);
             var15.draw();
             GL11.glEnable(GL11.GL_TEXTURE_2D);
-            var12.drawString(par2Str, -var12.getStringWidth(par2Str) / 2, var16, 553648127);
+            if(Base.nametags.getEnabled()){
+            var12.drawString(par2Str, -var12.getStringWidth(par2Str) / 2, var16, 0xFF00FFFF);
+            }else{
+            	var12.drawString(par2Str, -var12.getStringWidth(par2Str) / 2, var16, -1);
+            }
             GL11.glEnable(GL11.GL_DEPTH_TEST);
             GL11.glDepthMask(true);
-            var12.drawString(par2Str, -var12.getStringWidth(par2Str) / 2, var16, -1);
+            var12.drawString(par2Str, -var12.getStringWidth(par2Str) / 2, var16, 0xFF00FFFF);
             GL11.glEnable(GL11.GL_LIGHTING);
             GL11.glDisable(GL11.GL_BLEND);
             GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

@@ -10,7 +10,8 @@ public class GetBlockName extends Base {
 	
 	@Override
 	public void commandToggle(String par1Str){
-		if(par1Str.toLowerCase().startsWith(".id")){
+		if(par1Str.toLowerCase().startsWith(".blockid ")){
+			try{
    		    String as1[] = par1Str.toLowerCase().split(" ");
    		    String id = Integer.toString(blockNameToID(as1[1].toLowerCase()));;
    		    if(id == "-1"){
@@ -18,18 +19,20 @@ public class GetBlockName extends Base {
    		    }else{
    		    mc.thePlayer.addChatMessage("\247bID of \247l" + as1[1] + "\247r\247b is \247l" + id);
    		    }
+			}catch(Exception e){
+		    }
 		}
-		if(par1Str.toLowerCase().startsWith(".name")){
-   		    String as1[] = par1Str.toLowerCase().split(" ");
+		if(par1Str.toLowerCase().startsWith(".blockname ")){
+   		    try{
+			String as1[] = par1Str.toLowerCase().split(" ");
    		    int var1 = new Integer(as1[1]);
    		    if(blockIDToName(var1) == null){
    		    	mc.thePlayer.addChatMessage("\2474\247lBlock not found!");
    		    }else{
-   		    try{
    		    mc.thePlayer.addChatMessage("\247bName of " + as1[1] + " is " + blockIDToName(var1));
-   		    }catch(Exception e){
    		    	mc.thePlayer.addChatMessage("Failed");
    		    }
+   		    }catch(Exception e){
    		    }
 		}
 	}

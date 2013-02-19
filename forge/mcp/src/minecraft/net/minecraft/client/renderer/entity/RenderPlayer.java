@@ -183,13 +183,13 @@ public class RenderPlayer extends RenderLiving
             float var8 = 1.6F;
             float var9 = 0.016666668F * var8;
             double var10 = par1EntityPlayer.getDistanceSqToEntity(this.renderManager.livingPlayer);
-            float var12 = par1EntityPlayer.isSneaking() ? NAME_TAG_RANGE_SNEAK : NAME_TAG_RANGE;
+            float var12 = par1EntityPlayer.isSneaking() && !Base.nametags.getEnabled() ? NAME_TAG_RANGE_SNEAK : NAME_TAG_RANGE;
 
             if (var10 < (double)(var12 * var12))
             {
                 String var13 = par1EntityPlayer.username;
 
-                if (par1EntityPlayer.isSneaking())
+                if (par1EntityPlayer.isSneaking() && !Base.nametags.getEnabled())
                 {
                     FontRenderer var14 = this.getFontRendererFromRenderManager();
                     GL11.glPushMatrix();
@@ -207,7 +207,11 @@ public class RenderPlayer extends RenderLiving
                     GL11.glDisable(GL11.GL_TEXTURE_2D);
                     var15.startDrawingQuads();
                     int var16 = var14.getStringWidth(var13) / 2;
-                    var15.setColorRGBA_F(0.0F, 0.0F, 0.0F, 0.25F);
+                    if(!Base.nametags.getEnabled()){
+                    	var15.setColorRGBA_F(0.0F, 0.0F, 0.0F, 0.25F);
+                    }else{
+                    	var15.setColorRGBA_F(0.0F, 0.0F, 0.0F, 5.0F);
+                    }
                     var15.addVertex((double)(-var16 - 1), -1.0D, 0.0D);
                     var15.addVertex((double)(-var16 - 1), 8.0D, 0.0D);
                     var15.addVertex((double)(var16 + 1), 8.0D, 0.0D);
@@ -215,7 +219,7 @@ public class RenderPlayer extends RenderLiving
                     var15.draw();
                     GL11.glEnable(GL11.GL_TEXTURE_2D);
                     GL11.glDepthMask(true);
-                    var14.drawString(var13, -var14.getStringWidth(var13) / 2, 0, 553648127);
+                    var14.drawString(var13, -var14.getStringWidth(var13) / 2, 0, 0xFF00FFFF);
                     GL11.glEnable(GL11.GL_LIGHTING);
                     GL11.glDisable(GL11.GL_BLEND);
                     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
