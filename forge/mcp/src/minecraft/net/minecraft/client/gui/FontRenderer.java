@@ -42,7 +42,7 @@ public class FontRenderer
      * Array of RGB triplets defining the 16 standard chat colors followed by 16 darker version of the same colors for
      * drop shadows.
      */
-    public static int[] colorCode = new int[32];
+    private int[] colorCode = new int[32];
 
     /**
      * The currently bound GL texture ID. Avoids unnecessary glBindTexture() for the same texture if it's already bound.
@@ -211,10 +211,6 @@ public class FontRenderer
 
             this.colorCode[var9] = (var11 & 255) << 16 | (var12 & 255) << 8 | var13 & 255;
         }
-    }
-    
-    public int[] getColorCode(){
-    	return colorCode;
     }
 
     /**

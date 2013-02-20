@@ -10,8 +10,6 @@ import net.minecraft.network.packet.Packet203AutoComplete;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
-import com.github.marcusanthf.ftb_client.gui.GuiMethods;
-
 @SideOnly(Side.CLIENT)
 public class GuiChat extends GuiScreen
 {
@@ -333,7 +331,7 @@ public class GuiChat extends GuiScreen
      */
     public void drawScreen(int par1, int par2, float par3)
     {
-        GuiMethods.drawGradientBorderedRect(2, this.height - 14, this.width - 2, this.height - 2, 2, 0x90FFFFFF, 0x80000000, 0x801E1E1E);
+        drawRect(2, this.height - 14, this.width - 2, this.height - 2, Integer.MIN_VALUE);
         this.inputField.drawTextBox();
         super.drawScreen(par1, par2, par3);
     }

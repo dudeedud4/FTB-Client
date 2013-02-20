@@ -6,8 +6,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ChatAllowedCharacters;
 import org.lwjgl.opengl.GL11;
 
-import com.github.marcusanthf.ftb_client.gui.GuiMethods;
-
 @SideOnly(Side.CLIENT)
 public class GuiTextField extends Gui
 {
@@ -476,7 +474,7 @@ public class GuiTextField extends Gui
         {
             if (this.getEnableBackgroundDrawing())
             {
-                GuiMethods.drawBorderedRect(this.xPos - 1, this.yPos - 1, this.xPos + this.width + 1, this.yPos + this.height + 1, 2, -6250336, 0x900FFFF);
+                drawRect(this.xPos - 1, this.yPos - 1, this.xPos + this.width + 1, this.yPos + this.height + 1, -6250336);
                 drawRect(this.xPos, this.yPos, this.xPos + this.width, this.yPos + this.height, -16777216);
             }
 

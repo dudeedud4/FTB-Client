@@ -5,24 +5,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.awt.Font;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.StringTranslate;
 import net.minecraft.util.StringUtils;
 import org.lwjgl.opengl.GL11;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.UnicodeFont;
-import org.newdawn.slick.font.effects.ColorEffect;
-
-import com.github.marcusanthf.ftb_client.TTF;
-import com.github.marcusanthf.ftb_client.gui.GuiMethods;
 
 @SideOnly(Side.CLIENT)
 public class GuiNewChat extends Gui
 {
-	public static UnicodeFont font;
-	public static UnicodeFont boldFont;
-	
     /** The Minecraft instance. */
     private final Minecraft mc;
 
@@ -33,21 +23,10 @@ public class GuiNewChat extends Gui
     private final List chatLines = new ArrayList();
     private int field_73768_d = 0;
     private boolean field_73769_e = false;
-    public static String setfont = "Verdana";
 
     public GuiNewChat(Minecraft par1Minecraft)
     {
         this.mc = par1Minecraft;
-        
-        font = new UnicodeFont(new Font(setfont, Font.BOLD, 16));
-
-		font.addAsciiGlyphs();
-		font.getEffects().add(new ColorEffect(java.awt.Color.white));
-		try {
-			font.loadGlyphs();
-		} catch (SlickException e) {
-			e.printStackTrace();
-		}
     }
 
     public void drawChat(int par1)
@@ -111,18 +90,16 @@ public class GuiNewChat extends Gui
                             {
                                 byte var13 = 3;
                                 int var14 = -var7 * 9;
-//                                GuiMethods.drawGradientBorderedRect(var13, 0, var13 + 320 + 5, var14 + 9, 2, 0x90FFFFFF, 0x80000000, 0x801E1E1E);
-                                drawRect(var13, var14, var13 + 320 + 5, var14 + 9, var12 / 2 << 24);
+                                drawRect(var13, var14 - 1, var13 + 320 + 4, var14 + 8, var12 / 2 << 24);
                                 GL11.glEnable(GL11.GL_BLEND);
                                 String var15 = var8.getChatLineString();
 
                                 if (!this.mc.gameSettings.chatColours)
                                 {
                                     var15 = StringUtils.stripControlCodes(var15);
-						}
-							TTF.drawStringWithShadow(font, var15,
-									var13 + 4, -(var7 * 18) - 5 + 3,
-									org.newdawn.slick.Color.decode("0xffffff"));
+                                }
+
+                                this.mc.fontRenderer.drawStringWithShadow(var15, var13, var14, 16777215 + (var12 << 24));
                             }
                         }
                     }
@@ -141,10 +118,8 @@ public class GuiNewChat extends Gui
                     {
                         var12 = var17 > 0 ? 170 : 96;
                         int var18 = this.field_73769_e ? 13382451 : 3355562;
-                        GuiMethods.drawGradientBorderedRect(0, -var17, 2, -var17 - var11, 2, 0x90FFFFFF, 0x80000000, 0x801E1E1E);
-//                        drawRect(0, -var17, 2, -var17 - var11, var18 + (var12 << 24));
-                        GuiMethods.drawGradientBorderedRect(2, -var17, 1, -var17 - var11, 2, 0x90FFFFFF, 0x80000000, 0x801E1E1E);
-//                        drawRect(2, -var17, 1, -var17 - var11, 13421772 + (var12 << 24));
+                        drawRect(0, -var17, 2, -var17 - var11, var18 + (var12 << 24));
+                        drawRect(2, -var17, 1, -var17 - var11, 13421772 + (var12 << 24));
                     }
                 }
             }
