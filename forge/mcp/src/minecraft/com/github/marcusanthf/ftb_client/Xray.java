@@ -8,6 +8,7 @@ public class Xray extends Base{
 	
 	public static CopyOnWriteArrayList<Integer> xrayBlocks = new CopyOnWriteArrayList<Integer>();
 	public Iterator xray = xrayBlocks.iterator();
+	private boolean oldFB;
 
 	public Xray(String hackName, String hackCommand, int hackKey) {
 		super(hackName, hackCommand, hackKey);
@@ -68,15 +69,14 @@ public class Xray extends Base{
 	
 	@Override
 	public void onEnable(){
-		mc.gameSettings.gammaSetting = 100F;
+		this.oldFB = Base.fullbright.getEnabled();
+		Base.fullbright.hackToggle = true;
 		mc.renderGlobal.loadRenderers();
 	}
 	
 	@Override
 	public void onDisable(){
-		if(!Base.fullbright.getEnabled()){
-		mc.gameSettings.gammaSetting = 1F;
-		}
+		Base.fullbright.hackToggle = this.oldFB;
 		mc.renderGlobal.loadRenderers();
 	}
 
