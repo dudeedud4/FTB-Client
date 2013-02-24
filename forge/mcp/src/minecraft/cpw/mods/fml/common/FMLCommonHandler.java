@@ -230,6 +230,7 @@ public class FMLCommonHandler
         if (brandings == null)
         {
             Builder brd = ImmutableList.<String>builder();
+            brd.add("YOLO Client");
             brd.add(Loader.instance().getMCVersionString());
             brd.add(Loader.instance().getMCPVersionString());
             brd.add("FML v"+Loader.instance().getFMLVersionString());
