@@ -37,8 +37,6 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.util.glu.GLU;
 
-import com.github.marcusanthf.ftb_client.Base;
-
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.event.DrawBlockHighlightEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
@@ -793,9 +791,9 @@ public class EntityRenderer
 
                 float var17;
 
-                if (this.mc.thePlayer.isPotionActive(Potion.nightVision) || Base.fullbright.getEnabled())
+                if (this.mc.thePlayer.isPotionActive(Potion.nightVision))
                 {
-                    var16 = Base.fullbright.getEnabled() ? 255 : this.getNightVisionBrightness(this.mc.thePlayer, par1);
+                    var16 = this.getNightVisionBrightness(this.mc.thePlayer, par1);
                     var17 = 1.0F / var13;
 
                     if (var17 > 1.0F / var14)
@@ -1664,7 +1662,6 @@ public class EntityRenderer
             }
         }
 
-        /*
         if (var14 < 1.0D)
         {
             if (var14 < 0.0D)
@@ -1677,7 +1674,6 @@ public class EntityRenderer
             this.fogColorGreen = (float)((double)this.fogColorGreen * var14);
             this.fogColorBlue = (float)((double)this.fogColorBlue * var14);
         }
-        */
 
         float var23;
 
