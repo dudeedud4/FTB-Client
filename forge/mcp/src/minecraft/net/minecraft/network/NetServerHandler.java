@@ -319,9 +319,10 @@ public class NetServerHandler extends NetHandler
                 var13 = var5 - this.playerEntity.posX;
                 double var15 = var7 - this.playerEntity.posY;
                 double var17 = var9 - this.playerEntity.posZ;
-                double var19 = Math.min(Math.abs(var13), Math.abs(this.playerEntity.motionX));
-                double var21 = Math.min(Math.abs(var15), Math.abs(this.playerEntity.motionY));
-                double var23 = Math.min(Math.abs(var17), Math.abs(this.playerEntity.motionZ));
+                //Change min->max, fixes movement speed check 
+                double var19 = Math.max(Math.abs(var13), Math.abs(this.playerEntity.motionX));
+                double var21 = Math.max(Math.abs(var15), Math.abs(this.playerEntity.motionY));
+                double var23 = Math.max(Math.abs(var17), Math.abs(this.playerEntity.motionZ));
                 double var25 = var19 * var19 + var21 * var21 + var23 * var23;
 
                 if (var25 > 100.0D && (!this.mcServer.isSinglePlayer() || !this.mcServer.getServerOwner().equals(this.playerEntity.username)))

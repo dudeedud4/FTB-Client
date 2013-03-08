@@ -639,7 +639,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
         this.theProfiler.startSection("levels");
         int var1;
 
-        Integer[] ids = DimensionManager.getIDs();
+        Integer[] ids = DimensionManager.getIDs(this.tickCounter % 200 == 0);
         for (int x = 0; x < ids.length; x++)
         {
             int id = ids[x];
@@ -867,7 +867,7 @@ public abstract class MinecraftServer implements ICommandSender, Runnable, IPlay
 
     public String getServerModName()
     {
-        return "fml";
+        return "forge,fml";
     }
 
     /**

@@ -2,7 +2,9 @@ package net.minecraft.world.gen.feature;
 
 import java.util.Random;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class WorldGenTaiga2 extends WorldGenerator
 {
@@ -69,10 +71,12 @@ public class WorldGenTaiga2 extends WorldGenerator
             else
             {
                 var11 = par1World.getBlockId(par3, par4 - 1, par5);
+                Block soil = Block.blocksList[var11];
+                boolean isValidSoil = soil != null && soil.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Block.sapling);
 
-                if ((var11 == Block.grass.blockID || var11 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
+                if (isValidSoil && par4 < 256 - var6 - 1)
                 {
-                    this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
+                    soil.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
                     var21 = par2Random.nextInt(2);
                     var13 = 1;
                     byte var22 = 0;

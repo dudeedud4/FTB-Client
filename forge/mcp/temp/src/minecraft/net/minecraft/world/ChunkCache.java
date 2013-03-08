@@ -20,7 +20,7 @@ public class ChunkCache implements IBlockAccess {
    private int field_72816_b;
    private Chunk[][] field_72817_c;
    private boolean field_72814_d;
-   private World field_72815_e;
+   public World field_72815_e;
 
 
    public ChunkCache(World p_i3740_1_, int p_i3740_2_, int p_i3740_3_, int p_i3740_4_, int p_i3740_5_, int p_i3740_6_, int p_i3740_7_) {

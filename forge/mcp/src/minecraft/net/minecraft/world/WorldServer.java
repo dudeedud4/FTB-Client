@@ -75,7 +75,7 @@ public class WorldServer extends World
     public boolean canNotSave;
 
     /** is false if there are no players */
-    private boolean allPlayersSleeping;
+    public boolean allPlayersSleeping;
     private int updateEntityTick = 0;
     private final Teleporter field_85177_Q;
 

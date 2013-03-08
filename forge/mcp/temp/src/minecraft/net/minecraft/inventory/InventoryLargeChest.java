@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 public class InventoryLargeChest implements IInventory {
 
    private String field_70479_a;
-   private IInventory field_70477_b;
-   private IInventory field_70478_c;
+   public IInventory field_70477_b;
+   public IInventory field_70478_c;
 
 
    public InventoryLargeChest(String p_i3425_1_, IInventory p_i3425_2_, IInventory p_i3425_3_) {

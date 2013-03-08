@@ -572,6 +572,7 @@ public class Item
 
     /**
      * Returns a string representing what this item does to a potion.
+     * @Deprecated In favor of ItemStack sensitive version
      */
     public String getPotionEffect()
     {
@@ -580,6 +581,7 @@ public class Item
 
     /**
      * Returns true if this item serves as a potion ingredient (its ingredient information is not null).
+     * @Deprecated In favor of ItemStack sensitive version
      */
     public boolean isPotionIngredient()
     {
@@ -1016,4 +1018,62 @@ public class Item
     {
         return false;
     }
+
+
+    /**
+     * Called to tick armor in the armor slot. Override to do something
+     *
+     * @param world
+     * @param player
+     * @param itemStack
+     */
+    public void onArmorTickUpdate(World world, EntityPlayer player, ItemStack itemStack)
+    {
+
+    }
+
+    /**
+     * Determines if the specific ItemStack can be placed in the specified armor slot.
+     * 
+     * @param stack The ItemStack
+     * @param armorType Armor slot ID: 0: Helmet, 1: Chest, 2: Legs, 3: Boots
+     * @return True if the given ItemStack can be inserted in the slot
+     */
+    public boolean isValidArmor(ItemStack stack, int armorType)
+    {
+        if (this instanceof ItemArmor)
+        {
+            return ((ItemArmor)this).armorType == armorType;
+        }
+
+        if (armorType == 0)
+        {
+            return itemID == Block.pumpkin.blockID || itemID == Item.skull.itemID;
+        }
+
+        return false;
+    }
+    
+    /**
+     * ItemStack sensitive version of isPotionIngredient
+     * 
+     * @param stack The item stack
+     * @return True if this stack can be used as a potion ingredient
+     */
+    public boolean isPotionIngredient(ItemStack stack)
+    {
+        return isPotionIngredient();
+    }
+
+    /**
+     * ItemStack sensitive version of getPotionEffect
+     * 
+     * @param stack The item stack
+     * @return A string containing the bit manipulation to apply the the potion.
+     */
+    public String getPotionEffect(ItemStack stack)
+    {
+        return getPotionEffect();
+    }
+
 }

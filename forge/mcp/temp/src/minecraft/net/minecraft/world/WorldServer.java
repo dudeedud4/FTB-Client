@@ -72,7 +72,7 @@ public class WorldServer extends World {
    private TreeSet field_73065_O;
    public ChunkProviderServer field_73059_b;
    public boolean field_73058_d;
-   private boolean field_73068_P;
+   public boolean field_73068_P;
    private int field_80004_Q = 0;
    private final Teleporter field_85177_Q;
    private ServerBlockEventList[] field_73067_Q = new ServerBlockEventList[]{new ServerBlockEventList((ServerBlockEvent)null), new ServerBlockEventList((ServerBlockEvent)null)};

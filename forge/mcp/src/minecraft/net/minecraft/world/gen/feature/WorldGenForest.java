@@ -1,8 +1,11 @@
 package net.minecraft.world.gen.feature;
 
 import java.util.Random;
+
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class WorldGenForest extends WorldGenerator
 {
@@ -67,10 +70,12 @@ public class WorldGenForest extends WorldGenerator
             else
             {
                 var8 = par1World.getBlockId(par3, par4 - 1, par5);
+                Block soil = Block.blocksList[var8];
+                boolean isValidSoil = soil != null && soil.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Block.sapling);
 
-                if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
+                if (isValidSoil && par4 < 256 - var6 - 1)
                 {
-                    this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
+                    soil.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
                     int var16;
 
                     for (var16 = par4 - 3 + var6; var16 <= par4 + var6; ++var16)

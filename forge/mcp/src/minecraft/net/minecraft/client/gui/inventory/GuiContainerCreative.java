@@ -139,7 +139,7 @@ public class GuiContainerCreative extends InventoryEffectRenderer
                     return;
                 }
 
-                if (var7 != null && var8 != null && var7.isItemEqual(var8))
+                if (var7 != null && var8 != null && var7.isItemEqual(var8) && ItemStack.areItemStackTagsEqual(var7, var8))
                 {
                     if (par3 == 0)
                     {

@@ -7,10 +7,13 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.Level;
 
 import com.google.common.base.Charsets;
 
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.ModContainer;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -121,7 +124,23 @@ public class LanguageRegistry
 
     public void loadLocalization(String localizationFile, String lang, boolean isXML)
     {
-        loadLocalization(this.getClass().getResource(localizationFile), lang, isXML);
+        URL urlResource = this.getClass().getResource(localizationFile);
+        if (urlResource != null)
+        {
+            loadLocalization(urlResource, lang, isXML);
+        }
+        else
+        {
+            ModContainer activeModContainer = Loader.instance().activeModContainer();
+            if (activeModContainer!=null)
+            {
+                FMLLog.log(activeModContainer.getModId(), Level.SEVERE, "The language resource %s cannot be located on the classpath. This is a programming error.", localizationFile);
+            }
+            else
+            {
+                FMLLog.log(Level.SEVERE, "The language resource %s cannot be located on the classpath. This is a programming error.", localizationFile);
+            }
+        }
     }
 
     public void loadLocalization(URL localizationFile, String lang, boolean isXML)
@@ -142,8 +161,7 @@ public class LanguageRegistry
             addStringLocalization(langPack, lang);
         }
         catch (IOException e) {
-            FMLLog.getLogger().severe("Unable to load localization from file: " + localizationFile);
-            e.printStackTrace();
+            FMLLog.log(Level.SEVERE, e, "Unable to load localization from file %s", localizationFile);
         }
         finally    {
             try    {
@@ -152,7 +170,7 @@ public class LanguageRegistry
                 }
             }
             catch (IOException ex) {
-                ex.printStackTrace();
+                // HUSH
             }
         }
     }

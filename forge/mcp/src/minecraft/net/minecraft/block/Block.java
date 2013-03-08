@@ -2148,6 +2148,14 @@ public class Block
 
         return false;
     }
+	
+	public void onPlantGrow(World world, int x, int y, int z, int sourceX, int sourceY, int sourceZ)
+	{
+		if(blockID == grass.blockID)
+		{
+			world.setBlock(x, y, z, dirt.blockID);
+		}
+	}
 
     /**
      * Checks if this soil is fertile, typically this means that growth rates

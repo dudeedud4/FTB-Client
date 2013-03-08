@@ -337,6 +337,14 @@ public class InventoryPlayer implements IInventory
                 this.mainInventory[var1].updateAnimation(this.player.worldObj, this.player, var1, this.currentItem == var1);
             }
         }
+
+        for (int i = 0; i < this.armorInventory.length; i++)
+        {
+            if (this.armorInventory[i] != null)
+            {
+                this.armorInventory[i].getItem().onArmorTickUpdate(this.player.worldObj, this.player, this.armorInventory[i]);
+            }
+        }
     }
 
     /**

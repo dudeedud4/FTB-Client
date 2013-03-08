@@ -117,7 +117,7 @@
  
 -        for (var1 = 0; var1 < this.worldServers.length; ++var1)
 -        {
-+        Integer[] ids = DimensionManager.getIDs();
++        Integer[] ids = DimensionManager.getIDs(this.tickCounter % 200 == 0);
 +        for (int x = 0; x < ids.length; x++)
 +        {
 +            int id = ids[x];
@@ -162,6 +162,15 @@
      }
  
      @SideOnly(Side.SERVER)
+@@ -869,7 +867,7 @@
+ 
+     public String getServerModName()
+     {
+-        return "fml";
++        return "forge,fml";
+     }
+ 
+     /**
 @@ -1131,6 +1129,7 @@
  
              if (var2 != null)

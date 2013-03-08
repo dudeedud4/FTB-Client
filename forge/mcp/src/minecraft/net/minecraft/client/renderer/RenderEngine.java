@@ -213,7 +213,9 @@ public class RenderEngine
                     }
                     else
                     {
-                        this.setupTexture(this.readTextureImage(var7), var3);
+                        BufferedImage loadedImage = this.readTextureImage(var7);
+                        TextureFXManager.instance().fixTransparency(loadedImage, par1Str);
+                        this.setupTexture(loadedImage, var3);
                     }
                 }
 

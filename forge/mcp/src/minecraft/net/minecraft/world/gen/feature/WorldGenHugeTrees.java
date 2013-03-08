@@ -2,8 +2,10 @@ package net.minecraft.world.gen.feature;
 
 import java.util.Random;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 
 public class WorldGenHugeTrees extends WorldGenerator
 {
@@ -57,12 +59,12 @@ public class WorldGenHugeTrees extends WorldGenerator
                         if (var8 >= 0 && var8 < 256)
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
+                            Block block = Block.blocksList[var12];
 
-                            if (var12 != 0 && 
-                               (Block.blocksList[var12] != null && !Block.blocksList[var12].isLeaves(par1World, var10, var8, var11)) && 
-                               var12 != Block.grass.blockID && 
-                               var12 != Block.dirt.blockID && 
-                               (Block.blocksList[var12] != null && !Block.blocksList[var12].isWood(par1World, var10, var8, var11)) &&
+                            if (block != null &&
+                               !block.isLeaves(par1World, var10, var8, var11) &&
+                               !block.canSustainPlant(par1World, var10, var8, var11, ForgeDirection.UP, (BlockSapling)Block.sapling) && 
+                               !block.isWood(par1World, var10, var8, var11) &&
                                var12 != Block.sapling.blockID)
                             {
                                 var7 = false;
@@ -83,13 +85,15 @@ public class WorldGenHugeTrees extends WorldGenerator
             else
             {
                 var8 = par1World.getBlockId(par3, par4 - 1, par5);
+                Block soil = Block.blocksList[var8];
+                boolean isValidSoil = soil != null && soil.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Block.sapling);
 
-                if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
+                if (isValidSoil && par4 < 256 - var6 - 1)
                 {
-                    par1World.setBlock(par3, par4 - 1, par5, Block.dirt.blockID);
-                    par1World.setBlock(par3 + 1, par4 - 1, par5, Block.dirt.blockID);
-                    par1World.setBlock(par3, par4 - 1, par5 + 1, Block.dirt.blockID);
-                    par1World.setBlock(par3 + 1, par4 - 1, par5 + 1, Block.dirt.blockID);
+                    onPlantGrow(par1World, par3,     par4 - 1, par5,     par3, par4, par5);
+                    onPlantGrow(par1World, par3 + 1, par4 - 1, par5,     par3, par4, par5);
+                    onPlantGrow(par1World, par3,     par4 - 1, par5 + 1, par3, par4, par5);
+                    onPlantGrow(par1World, par3 + 1, par4 - 1, par5 + 1, par3, par4, par5);
                     this.growLeaves(par1World, par3, par5, par4 + var6, 2, par2Random);
 
                     for (int var14 = par4 + var6 - 2 - par2Random.nextInt(4); var14 > par4 + var6 / 2; var14 -= 2 + par2Random.nextInt(4))
@@ -235,6 +239,15 @@ public class WorldGenHugeTrees extends WorldGenerator
                     }
                 }
             }
+        }
+    }
+    
+    private void onPlantGrow(World world, int x, int y, int z, int sourceX, int sourceY, int sourceZ)
+    {
+        Block block = Block.blocksList[world.getBlockId(x, y, z)];
+        if (block != null)
+        {
+            block.onPlantGrow(world, x, y, z, sourceX, sourceY, sourceZ);
         }
     }
 }

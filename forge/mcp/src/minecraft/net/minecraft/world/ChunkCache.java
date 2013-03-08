@@ -21,7 +21,7 @@ public class ChunkCache implements IBlockAccess
     private boolean hasExtendedLevels;
 
     /** Reference to the World object. */
-    private World worldObj;
+    public World worldObj;
 
     public ChunkCache(World par1World, int par2, int par3, int par4, int par5, int par6, int par7)
     {
