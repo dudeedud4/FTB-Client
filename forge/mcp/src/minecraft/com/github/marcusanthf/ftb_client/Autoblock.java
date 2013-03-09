@@ -1,6 +1,8 @@
 package com.github.marcusanthf.ftb_client;
 
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemSword;
 
 public class Autoblock extends Base{
 
@@ -11,12 +13,14 @@ public class Autoblock extends Base{
 	
 	@Override
 	public void onUpdate(EntityPlayer player){
-		for(Object enemy : mc.theWorld.playerEntities){
-			
-			EntityPlayer enemyplayer = (EntityPlayer)enemy;
-			
-			if(mc.thePlayer.getDistanceToEntity(enemyplayer) <= 5 && !enemyplayer.isDead && enemyplayer.isSwingInProgress){
-				mc.clickMouse(1);
+		if(mc.thePlayer.inventory.getCurrentItem().getItem() instanceof ItemSword){
+			for(Object enemy : mc.theWorld.playerEntities){
+				
+				EntityPlayer enemyplayer = (EntityPlayer)enemy;
+				
+				if(mc.thePlayer.getDistanceToEntity(enemyplayer) <= 5 && !enemyplayer.isDead && enemyplayer.isSwingInProgress){
+					mc.clickMouse(1);
+				}
 			}
 		}
 	}
