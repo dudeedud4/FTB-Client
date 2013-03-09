@@ -1,6 +1,7 @@
 package com.github.marcusanthf.ftb_client;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.item.ItemBow;
 import net.minecraft.network.packet.Packet12PlayerLook;
 import net.minecraft.network.packet.Packet14BlockDig;
 import net.minecraft.network.packet.Packet15Place;
@@ -28,7 +29,7 @@ public class FastBowThread implements Runnable{
 	 public void fastbow(){
 			if (mc.thePlayer.isUsingItem())
 			{
-				if (mc.thePlayer.inventory.getCurrentItem().getItem().getItemName().equalsIgnoreCase("item.bow"))
+				if (mc.thePlayer.inventory.getCurrentItem().getItem() instanceof ItemBow)
 				{
 					if (mc.thePlayer.onGround)
 					{
