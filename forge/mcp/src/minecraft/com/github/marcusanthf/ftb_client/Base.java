@@ -32,6 +32,7 @@ public abstract class Base {
 	 * Ex. public static Freecam freecam = new Hacks("FreeCam", ".fc", Keyboard.KEY_N)
 	 */
 	
+	public static FastBow fastbow = new FastBow("FastBow", "fastbow", 0);
 	public static Autoblock autoblock = new Autoblock("AutoBlock", "autoblock", 0);
 	public static AutoSign autosign = new AutoSign("AutoSign", "autosign", 0);
 	public static Crits crits = new Crits("Crits", "crits", 0);
