@@ -36,12 +36,10 @@ public class FastBowThread implements Runnable{
 						try
 						{
 							mc.getSendQueue().addToSendQueue(new Packet15Place(-1, -1, -1, 255, mc.thePlayer.inventory.getCurrentItem(),1 , 1, 1));
+							Thread.sleep(10L);
 							for (int i = 0; i < 25; i++)
 							{
 								Thread.sleep(5L);
-								Minecraft _tmp4 = mc;
-								Minecraft _tmp5 = mc;
-								Minecraft _tmp6 = mc;
 								mc.getSendQueue().addToSendQueue(new Packet12PlayerLook(mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch, mc.thePlayer.onGround));
 							}
 							mc.getSendQueue().addToSendQueue(new Packet14BlockDig(5, 0, 0, 0, 255));
