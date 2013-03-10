@@ -36,7 +36,7 @@ public class FastBowThread implements Runnable{
 						try
 						{
 							mc.getSendQueue().addToSendQueue(new Packet15Place(-1, -1, -1, 255, mc.thePlayer.inventory.getCurrentItem(),1 , 1, 1));
-							Thread.sleep(10L);
+							Thread.sleep(15L);
 							for (int i = 0; i < 25; i++)
 							{
 								Thread.sleep(5L);
