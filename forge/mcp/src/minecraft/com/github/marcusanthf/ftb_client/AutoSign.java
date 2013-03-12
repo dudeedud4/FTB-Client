@@ -1,7 +1,9 @@
 package com.github.marcusanthf.ftb_client;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.packet.Packet130UpdateSign;
 
 public class AutoSign extends Base {
@@ -21,7 +23,7 @@ public class AutoSign extends Base {
 	}
 	
 	@Override
-	public void motionUpdate(){
+	public void motionUpdate(EntityClientPlayerMP playermp){
 		signDelay++;
 		byte byte0 = 50;
 		if(signDelay >= 15)

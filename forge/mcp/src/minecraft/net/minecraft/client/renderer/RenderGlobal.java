@@ -62,6 +62,7 @@ import net.minecraft.world.IWorldAccess;
 import org.lwjgl.opengl.ARBOcclusionQuery;
 import org.lwjgl.opengl.GL11;
 
+import com.github.marcusanthf.ftb_client.Base;
 import com.github.marcusanthf.ftb_client.GameHooks;
 
 import net.minecraftforge.client.IRenderHandler;
@@ -69,6 +70,13 @@ import net.minecraftforge.client.IRenderHandler;
 @SideOnly(Side.CLIENT)
 public class RenderGlobal implements IWorldAccess
 {
+    private static final RenderGlobal INSTANCE = new RenderGlobal(Base.getMinecraft(), Base.getMinecraft().renderEngine);
+    
+	public static RenderGlobal instance() //Used to run in EntityPlayer
+	{
+	    return INSTANCE;
+	}
+	
     public List tileEntities = new ArrayList();
     public WorldClient theWorld;
 
@@ -1710,7 +1718,7 @@ public class RenderGlobal implements IWorldAccess
     /**
      * Draws lines for the edges of the bounding box.
      */
-    private void drawOutlinedBoundingBox(AxisAlignedBB par1AxisAlignedBB)
+    public void drawOutlinedBoundingBox(AxisAlignedBB par1AxisAlignedBB)
     {
         Tessellator var2 = Tessellator.instance;
         var2.startDrawing(3);

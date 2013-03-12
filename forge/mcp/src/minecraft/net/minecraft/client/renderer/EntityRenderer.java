@@ -37,6 +37,9 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.util.glu.GLU;
 
+import com.github.marcusanthf.ftb_client.Base;
+import com.github.marcusanthf.ftb_client.GameHooks;
+
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.event.DrawBlockHighlightEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
@@ -1126,6 +1129,7 @@ public class EntityRenderer
 
             if (this.debugViewDirection == 0)
             {
+            	GameHooks.instance().renderInGame(par1, par2);
                 RenderHelper.enableStandardItemLighting();
                 this.mc.mcProfiler.endStartSection("entities");
                 var5.renderEntities(var4.getPosition(par1), var14, par1);

@@ -8,13 +8,5 @@ public class Jesus extends Base {
 		super(hackName, hackCommand, hackKey);
 		// TODO Auto-generated constructor stub
 	}
-	
-	@Override 
-	public void onUpdate(EntityPlayer player){
-		if(mc.thePlayer.handleWaterMovement())
-		{
-			mc.thePlayer.jump();
-		}
-	}
 
 }

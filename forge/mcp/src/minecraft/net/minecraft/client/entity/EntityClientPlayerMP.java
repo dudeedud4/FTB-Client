@@ -11,6 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.NetClientHandler;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.packet.Packet0KeepAlive;
 import net.minecraft.network.packet.Packet101CloseWindow;
 import net.minecraft.network.packet.Packet10Flying;
 import net.minecraft.network.packet.Packet11PlayerPosition;
@@ -33,6 +34,8 @@ public class EntityClientPlayerMP extends EntityPlayerSP
 {
     public NetClientHandler sendQueue;
     private double oldPosX;
+    
+	private double savedposx, savedposy, savedposz;
 
     /** Old Minimum Y of the bounding box */
     private double oldMinY;
@@ -90,7 +93,22 @@ public class EntityClientPlayerMP extends EntityPlayerSP
      */
     public void sendMotionUpdates()
     {
-    	GameHooks.instance().motionUpdate();
+    	GameHooks.instance().motionUpdate(this);
+    	
+    	if(Base.flybypass.getEnabled() && Base.fly.getEnabled()){
+    	double d = mc.thePlayer.posX - savedposx;
+	    double d2 = mc.thePlayer.posY - savedposy;
+	    double d4 = mc.thePlayer.posZ - savedposz;
+	    double d6 = Math.sqrt((d * d) + (d2 * d2) + (d4 * d4));
+	    if(d6 <= 9D)
+	    {
+	    mc.getSendQueue().addToSendQueue(new Packet0KeepAlive());
+	    return;
+	    }
+    	}
+	  savedposx = mc.thePlayer.posX;
+	  savedposy = mc.thePlayer.posY;
+	  savedposz = mc.thePlayer.posZ;
     	
         boolean var1 = this.isSprinting();
 
@@ -197,6 +215,10 @@ public class EntityClientPlayerMP extends EntityPlayerSP
         	for (Base base : Base.hackArray) {
 				base.commandToggle(par1Str);
 			}
+    		if(par1Str.startsWith(".say")){
+                String as1[] = par1Str.split(" ");
+                this.sendQueue.addToSendQueue(new Packet3Chat(as1[1]));
+    		}
     	}else{
         this.sendQueue.addToSendQueue(new Packet3Chat(par1Str));
     	}

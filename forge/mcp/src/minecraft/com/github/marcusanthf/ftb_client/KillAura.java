@@ -7,8 +7,9 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class KillAura extends Base{
 	
-	int delay, jumpdelay;
-	private boolean crits;
+	int jumpdelay;
+	int delay = 1;
+	private boolean crits = true;
 	private boolean face;
 	private boolean swing;
 

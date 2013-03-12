@@ -159,11 +159,6 @@ public class Teleport extends Base {
             mc.getSendQueue().addToSendQueue(new Packet13PlayerLookMove(mc.thePlayer.posX, mc.thePlayer.boundingBox.minY, mc.thePlayer.posY, mc.thePlayer.posZ, mc.thePlayer.rotationYaw, mc.thePlayer.rotationPitch, true));
         }
  
-        try
-        {
-            Thread.sleep(3L);
-        }
-        catch(Exception exception) { }
 	}
 
 }

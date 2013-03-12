@@ -3,7 +3,7 @@ package com.github.marcusanthf.ftb_client;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class MoveSpeed extends Base {
-	private float speed = 1.0f;
+	private float speed = 1.5f;
 	
 	public MoveSpeed(String hackName, String hackCommand, int hackKey) {
 		super(hackName, hackCommand, hackKey);
@@ -14,8 +14,8 @@ public class MoveSpeed extends Base {
 	public void onUpdate(EntityPlayer player){
 		if(!Base.fly.getEnabled())
 		{
-			player.landMovementFactor = this.speed;
-			player.jumpMovementFactor = this.speed;
+			player.landMovementFactor = this.speed * 0.1F;
+			player.jumpMovementFactor = this.speed * 0.02F;
 		}
 	}
 	
@@ -30,7 +30,7 @@ public class MoveSpeed extends Base {
 				mc.thePlayer.addChatMessage("\247bMoveSpeed set. Make sure to toggle with .move");
 				}else{
 					this.toggleHack();
-					mc.thePlayer.addChatMessage("\247bMoveSpeed toggled. Change height with .move [speed].");
+					mc.thePlayer.addChatMessage("\247bMoveSpeed toggled. Change speed with .move [speed].");
 				}
 			}catch(Exception stepException){
 				toggleHack();
