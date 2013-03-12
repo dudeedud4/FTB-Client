@@ -41,6 +41,7 @@ public abstract class Base {
 	 */
 
 	public static Gui gui = new Gui("Gui", "gui", Keyboard.KEY_GRAVE);
+	public static ReverseNuke reversenuke = new ReverseNuke("ReverseNuke", "blockspam", -1);
 	public static Sprint sprint = new Sprint("Sprint", "sprint", -1);
 	public static Blank blank = new Blank("Blank", null, -1);
 	public static Insult insult = new Insult("Insult", null, -1);
