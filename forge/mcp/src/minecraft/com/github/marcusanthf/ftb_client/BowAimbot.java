@@ -28,7 +28,7 @@ public class BowAimbot extends Base {
             for (int var2 = 0; var2 < mc.theWorld.loadedEntityList.size(); ++var2)
             {
                 Entity var3 = (Entity)mc.theWorld.loadedEntityList.get(var2);
-                    if (var3 instanceof EntityPlayer)
+                    if (var3 instanceof EntityPlayer && var3 != mc.thePlayer)
                     {
                             this.aimBow(var3);
                 }
