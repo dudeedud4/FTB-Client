@@ -3,6 +3,7 @@ package com.github.marcusanthf.ftb_client;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -15,11 +16,8 @@ public class BowAimbot extends Base {
 	
 	@Override
 	public void onUpdate(EntityPlayer player){
-		if(mc.thePlayer.getCurrentEquippedItem().getItem() != null){
-			Item currenti = mc.thePlayer.getCurrentEquippedItem().getItem();
-			if(mc.thePlayer.getItemInUseDuration() > 0 && currenti instanceof net.minecraft.item.ItemBow){
+		if(mc.thePlayer.inventory.getCurrentItem().getItem() instanceof ItemBow && mc.thePlayer.isUsingItem()){
 				this.aim();
-			}
 		}
 	}
 	
