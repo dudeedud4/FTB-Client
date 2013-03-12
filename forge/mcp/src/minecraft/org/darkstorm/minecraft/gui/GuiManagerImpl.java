@@ -257,7 +257,6 @@ public class GuiManagerImpl implements GuiManager {
 		playerFrame.add(Base.autotool.button);
 		playerFrame.add(Base.speedmine.button);
 		playerFrame.add(Base.nofall.button);
-		playerFrame.add(Base.instanteat.button);
 		playerFrame.add(Base.movespeed.button);
 		playerFrame.add(Base.step.button);
 		
@@ -277,7 +276,6 @@ public class GuiManagerImpl implements GuiManager {
 		Frame PVPFrame = new BasicFrame("PVP");
 		PVPFrame.setTheme(theme);
 		PVPFrame.add(new BasicLabel("PVP-related hacks"));
-		PVPFrame.add(Base.projlaser.button);
 		PVPFrame.add(Base.fastbow.button);
 		PVPFrame.add(Base.bowaimbot.button);
 		PVPFrame.add(Base.tracers.button);
@@ -304,10 +302,8 @@ public class GuiManagerImpl implements GuiManager {
 		displayFrame.setTheme(theme);
 		displayFrame.add(new BasicLabel("Client-sided display hacks"));
 		displayFrame.add(Base.fullbright.button);
-		displayFrame.add(Base.crumbs.button);
 		displayFrame.add(Base.nikofag.button);
 		displayFrame.add(Base.tracers.button);
-		displayFrame.add(Base.projlaser.button);
 		displayFrame.add(Base.nametags.button);
 		displayFrame.add(Base.chams.button);
 		
