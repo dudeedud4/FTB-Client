@@ -23,3 +23,17 @@ If you wish that your code be ommitted from this repository, please contact me a
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    
+
+==========
+Instructions on compiling (TODO: Add compile script)
+==========
+Download the source from here
+Download the latest minecraftforge source for 1.4.7 from http://files.minecraftforge.net/
+Run the install script in minecraftforge
+Copy all files in this repository to forge/mcp/src
+Run forge/mcp/recompile(.sh/.bat)
+Run forge/mcp/reobfuscate(.sh/.bat)
+Add the contents of slick.jar (http://www.slick2d.org/downloads/slick.jar) to reobf
+Add forge/mcp/src/insults.txt to reobf
+Install reobf to your forge release zip
