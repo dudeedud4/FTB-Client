@@ -6,8 +6,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import com.github.marcusanthf.ftb_client.NoFall;
-
 public class Packet10Flying extends Packet
 {
     /** The player's X position. */
@@ -66,7 +64,7 @@ public class Packet10Flying extends Packet
      */
     public void writePacketData(DataOutputStream par1DataOutputStream) throws IOException
     {
-        par1DataOutputStream.write(this.onGround || NoFall.toggle ? 1 : 0);
+        par1DataOutputStream.write(this.onGround ? 1 : 0);
     }
 
     /**

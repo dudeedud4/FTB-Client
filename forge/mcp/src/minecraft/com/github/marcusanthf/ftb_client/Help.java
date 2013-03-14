@@ -33,6 +33,17 @@ public class Help extends Base {
 				Base nexthack = (Base)hacks.next(); //Set the hack to nexthack
 				if(nexthack.getCommand() != null && nexthack.getName() != null)
 					mc.thePlayer.addChatMessage("\247b" + nexthack.getName() + "\247f - " + "\247b\247o." + nexthack.getCommand());
+					mc.thePlayer.addChatMessage("\247b.move \247f toggles move, &247b.move &247l[speed] &247r&247fchanges the move speed");
+					mc.thePlayer.addChatMessage("\247b.step \247f toggles step, &247b.step &247l[height] &247r&247fchanges the step height");
+					mc.thePlayer.addChatMessage("\247b.insult");
+					mc.thePlayer.addChatMessage("\247b.tp [x] [y] [z]");
+					mc.thePlayer.addChatMessage("\247b.say message - Ex. .say .help");
+					mc.thePlayer.addChatMessage("\247b.snuke - survival nuker, nukes the block you click");
+					mc.thePlayer.addChatMessage("\247b.cnuke - nukes every nearby block");
+					mc.thePlayer.addChatMessage("\247b.anni - breaks one-hit blocks");
+					mc.thePlayer.addChatMessage("\247b.derp toggles derp");
+					mc.thePlayer.addChatMessage("\247b.key set [hackname] [key]");
+					
 			}
 			mc.thePlayer.addChatMessage("\247b\247l---------------------------------------------");
 		}

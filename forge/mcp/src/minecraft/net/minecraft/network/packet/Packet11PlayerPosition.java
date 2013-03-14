@@ -22,7 +22,7 @@ public class Packet11PlayerPosition extends Packet10Flying
         this.yPosition = par3;
         this.stance = par5;
         this.zPosition = par7;
-        this.onGround = Base.crits.getEnabled() ? true : par9;
+        this.onGround = par9;
         this.moving = true;
     }
 

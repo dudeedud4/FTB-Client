@@ -93,8 +93,6 @@ public class EntityClientPlayerMP extends EntityPlayerSP
      */
     public void sendMotionUpdates()
     {
-    	GameHooks.instance().motionUpdate(this);
-    	
     	if(Base.flybypass.getEnabled() && Base.fly.getEnabled()){
     	double d = mc.thePlayer.posX - savedposx;
 	    double d2 = mc.thePlayer.posY - savedposy;
@@ -149,6 +147,8 @@ public class EntityClientPlayerMP extends EntityPlayerSP
         double var11 = (double)(this.rotationPitch - this.oldRotationPitch);
         boolean var13 = var3 * var3 + var5 * var5 + var7 * var7 > 9.0E-4D || this.field_71168_co >= 20;
         boolean var14 = var9 != 0.0D || var11 != 0.0D;
+        
+    	GameHooks.instance().motionUpdate(this);
 
         if (this.ridingEntity != null)
         {
@@ -173,6 +173,7 @@ public class EntityClientPlayerMP extends EntityPlayerSP
         }
 
         ++this.field_71168_co;
+        this.onGround = Base.nofall.oldGround;
         this.wasOnGround = this.onGround;
 
         if (var13)
