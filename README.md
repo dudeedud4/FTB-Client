@@ -7,7 +7,7 @@ All code is licensed under the license the original author used for the code.
 
 All code written by myself and/or other contributers can be used freely under the GPL which can be found at http://www.gnu.org/licenses/
 
-If you wish that your code be ommitted from this repository, please contact me at marcusant@marcusant.com
+If you wish that your code be ommitted from this repository, please contact me at mstojcevich@gmail.com
 
 ==========
 
